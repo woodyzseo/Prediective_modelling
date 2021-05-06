@@ -1,0 +1,191 @@
+ 
+                                                                                               
+ 
+ 
+Fit Statistics
+
+Target=Risk Target Label=' '
+
+   Fit
+Statistics    Statistics Label                      Train    Validation
+
+ _DFT_        Total Degrees of Freedom            100.000         .    
+ _DFE_        Degrees of Freedom for Error         -9.000         .    
+ _DFM_        Model Degrees of Freedom            109.000         .    
+ _NW_         Number of Estimated Weights         109.000         .    
+ _AIC_        Akaike's Information Criterion         .            .    
+ _SBC_        Schwarz's Bayesian Criterion           .            .    
+ _ASE_        Average Squared Error                 0.084        0.099 
+ _MAX_        Maximum Absolute Error                0.971        0.985 
+ _DIV_        Divisor for ASE                     200.000      200.000 
+ _NOBS_       Sum of Frequencies                  100.000      100.000 
+ _RASE_       Root Average Squared Error            0.290        0.314 
+ _SSE_        Sum of Squared Errors                16.781       19.709 
+ _SUMW_       Sum of Case Weights Times Freq      200.000      200.000 
+ _FPE_        Final Prediction Error                 .            .    
+ _MSE_        Mean Squared Error                     .           0.099 
+ _RFPE_       Root Final Prediction Error            .            .    
+ _RMSE_       Root Mean Squared Error                .           0.314 
+ _AVERR_      Average Error Function                0.287        0.337 
+ _ERR_        Error Function                       57.479       67.451 
+ _MISC_       Misclassification Rate                0.100        0.120 
+ _WRONG_      Number of Wrong Classifications      10.000       12.000 
+ 
+                                                                                               
+ 
+ 
+Classification Table
+
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+
+  0          0         92.8571       84.7826         39           39    
+  1          0          7.1429        5.5556          3            3    
+  0          1         12.0690       15.2174          7            7    
+  1          1         87.9310       94.4444         51           51    
+
+
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+
+  0          0         90.2439       82.2222         37           37    
+  1          0          9.7561        7.2727          4            4    
+  0          1         13.5593       17.7778          8            8    
+  1          1         86.4407       92.7273         51           51    
+ 
+                                                                                               
+ 
+ 
+Event Classification Table
+
+Data Role=TRAIN Target=Risk Target Label=' '
+
+  False       True        False       True
+Negative    Negative    Positive    Positive
+
+    3          39           7          51   
+
+
+Data Role=VALIDATE Target=Risk Target Label=' '
+
+  False       True        False       True
+Negative    Negative    Positive    Positive
+
+    4          37           8          51   
+ 
+                                                                                               
+ 
+ 
+Assessment Score Rankings
+
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth     Gain      Lift       Lift      Response   % Response   Observations   Probability
+
+   5    85.1852   1.85185     1.85185       100       100.000          5          0.99216  
+  10    85.1852   1.85185     1.85185       100       100.000          5          0.99051  
+  15    85.1852   1.85185     1.85185       100       100.000          5          0.98795  
+  20    85.1852   1.85185     1.85185       100       100.000          5          0.98516  
+  25    85.1852   1.85185     1.85185       100       100.000          5          0.98242  
+  30    85.1852   1.85185     1.85185       100       100.000          5          0.97501  
+  35    69.3122   0.74074     1.69312        40        91.429          5          0.96017  
+  40    71.2963   1.85185     1.71296       100        92.500          5          0.93318  
+  45    68.7243   1.48148     1.68724        80        91.111          5          0.90309  
+  50    66.6667   1.48148     1.66667        80        90.000          5          0.80686  
+  55    64.9832   1.48148     1.64983        80        89.091          5          0.71185  
+  60    60.4938   1.11111     1.60494        60        86.667          5          0.54278  
+  65    50.9972   0.37037     1.50997        20        81.538          5          0.39055  
+  70    40.2116   0.00000     1.40212         0        75.714          5          0.18886  
+  75    33.3333   0.37037     1.33333        20        72.000          5          0.06268  
+  80    25.0000   0.00000     1.25000         0        67.500          5          0.03186  
+  85    17.6471   0.00000     1.17647         0        63.529          5          0.01311  
+  90    11.1111   0.00000     1.11111         0        60.000          5          0.00683  
+  95     5.2632   0.00000     1.05263         0        56.842          5          0.00335  
+ 100     0.0000   0.00000     1.00000         0        54.000          5          0.00208  
+
+
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth     Gain      Lift       Lift      Response   % Response   Observations   Probability
+
+   5    81.8182   1.81818     1.81818       100       100.000          5          0.99386  
+  10    81.8182   1.81818     1.81818       100       100.000          5          0.99121  
+  15    81.8182   1.81818     1.81818       100       100.000          5          0.99009  
+  20    81.8182   1.81818     1.81818       100       100.000          5          0.98772  
+  25    74.5455   1.45455     1.74545        80        96.000          5          0.98491  
+  30    75.7576   1.81818     1.75758       100        96.667          5          0.98072  
+  35    66.2338   1.09091     1.66234        60        91.429          5          0.96731  
+  40    59.0909   1.09091     1.59091        60        87.500          5          0.95107  
+  45    61.6162   1.81818     1.61616       100        88.889          5          0.92104  
+  50    63.6364   1.81818     1.63636       100        90.000          5          0.75587  
+  55    60.3306   1.27273     1.60331        70        88.182          5          0.59087  
+  60    54.5455   0.90909     1.54545        50        85.000          5          0.51122  
+  65    48.2517   0.72727     1.48252        40        81.538          5          0.31104  
+  70    42.8571   0.72727     1.42857        40        78.571          5          0.19476  
+  75    33.3333   0.00000     1.33333         0        73.333          5          0.06779  
+  80    25.0000   0.00000     1.25000         0        68.750          5          0.02594  
+  85    17.6471   0.00000     1.17647         0        64.706          5          0.00925  
+  90    11.1111   0.00000     1.11111         0        61.111          5          0.00665  
+  95     5.2632   0.00000     1.05263         0        57.895          5          0.00321  
+ 100     0.0000   0.00000     1.00000         0        55.000          5          0.00210  
+ 
+                                                                                               
+ 
+ 
+Assessment Score Distribution
+
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+
+ 0.95-1.00       32           3         0.98191          35    
+ 0.90-0.95        7           1         0.92764           8    
+ 0.85-0.90        3           0         0.87253           3    
+ 0.80-0.85        1           1         0.82696           2    
+ 0.75-0.80        3           0         0.76018           3    
+ 0.70-0.75        0           1         0.74539           1    
+ 0.65-0.70        3           0         0.68543           3    
+ 0.60-0.65        1           0         0.64634           1    
+ 0.55-0.60        1           0         0.57540           1    
+ 0.50-0.55        0           1         0.52161           1    
+ 0.45-0.50        2           2         0.47603           4    
+ 0.35-0.40        0           1         0.39309           1    
+ 0.30-0.35        0           3         0.31124           3    
+ 0.20-0.25        0           1         0.22358           1    
+ 0.15-0.20        0           1         0.19038           1    
+ 0.10-0.15        0           2         0.11138           2    
+ 0.05-0.10        1           2         0.07174           3    
+ 0.00-0.05        0          27         0.01423          27    
+
+
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+
+ 0.95-1.00       34           4         0.98278          38    
+ 0.90-0.95        5           1         0.94075           6    
+ 0.80-0.85        1           0         0.84948           1    
+ 0.75-0.80        4           0         0.76935           4    
+ 0.70-0.75        2           0         0.70118           2    
+ 0.60-0.65        1           0         0.63395           1    
+ 0.50-0.55        4           3         0.53783           7    
+ 0.40-0.45        0           2         0.40807           2    
+ 0.35-0.40        1           0         0.37989           1    
+ 0.25-0.30        0           2         0.27436           2    
+ 0.20-0.25        2           2         0.21782           4    
+ 0.15-0.20        1           0         0.18713           1    
+ 0.10-0.15        0           1         0.13715           1    
+ 0.05-0.10        0           3         0.07991           3    
+ 0.00-0.05        0          27         0.01241          27    

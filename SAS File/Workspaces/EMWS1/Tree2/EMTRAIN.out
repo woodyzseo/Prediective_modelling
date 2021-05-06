@@ -1,0 +1,8 @@
+                                                                                                                                                                                                                                11:20 Friday, April 16, 2021   1
+
+Obs    NAME               LABEL        NRULES    IMPORTANCE    VIMPORTANCE     RATIO
+
+  1    num_of_doors    num-of-doors       1        1.00000       1.00000      1.00000
+  2    height                             1        0.61489       0.37140      0.60402
+  3    engine_type     engine-type        1        0.29696       0.19565      0.65884
+  4    wheel_base      wheel-base         1        0.27778       0.05661      0.20381

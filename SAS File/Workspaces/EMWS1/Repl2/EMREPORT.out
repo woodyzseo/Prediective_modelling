@@ -1,0 +1,15 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Replacement Counts
+
+Obs    Variable            Role     Label               Train    Validation
+
+ 1     aspiration          INPUT                         100         100   
+ 2     body_style          INPUT    body-style           100         100   
+ 3     drive_wheels        INPUT    drive-wheels         100         100   
+ 4     engine_location     INPUT    engine-location      100         100   
+ 5     fuel_system         INPUT    fuel-system           97          94   
+ 6     fuel_type           INPUT    fuel-type            100         100   
+ 7     num_of_cylinders    INPUT    num-of-cylinders     100          96   

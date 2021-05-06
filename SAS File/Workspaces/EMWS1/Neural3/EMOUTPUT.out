@@ -1,0 +1,536 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 16, 2021
+Time:                11:31:37 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        BINARY             4
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL          15
+REJECTED     NOMINAL            9
+TARGET       BINARY             1
+ 
+ 
+ 
+ 
+Model Events
+ 
+                                  Number
+                   Measurement      of
+Target    Event       Level       Levels      Order       Label
+ 
+ Risk       1        BINARY          2      Descending
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type         Variable    Label
+ 
+TARGET       Risk
+PREDICTED    P_Risk1     Predicted: Risk=1
+RESIDUAL     R_Risk1     Residual: Risk=1
+PREDICTED    P_Risk0     Predicted: Risk=0
+RESIDUAL     R_Risk0     Residual: Risk=0
+FROM         F_Risk      From: Risk
+INTO         I_Risk      Into: Risk
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                        Optimization Start
+                       Parameter Estimates
+                                                         Gradient
+                                                        Objective
+  N Parameter                            Estimate        Function
+ 
+  1 LOG_REP_IMP_price_H11               -0.007371               0
+  2 LOG_REP_compression_ratio_H11       -0.017148               0
+  3 LOG_REP_engine_size_H11             -0.041759               0
+  4 REP_IMP_bore_H11                    -0.038118               0
+  5 REP_IMP_stroke_H11                   0.012611               0
+  6 REP_city_mpg_H11                     0.085640               0
+  7 REP_curb_weight_H11                 -0.260882               0
+  8 REP_height_H11                       0.135793               0
+  9 REP_highway_mpg_H11                  0.098132               0
+ 10 REP_horsepower_H11                   0.030134               0
+ 11 REP_length_H11                      -0.247577               0
+ 12 REP_peak_rpm_H11                     0.076981               0
+ 13 REP_wheel_base_H11                  -0.110477               0
+ 14 REP_width_H11                        0.291400               0
+ 15 LOG_REP_IMP_price_H12                0.005388               0
+ 16 LOG_REP_compression_ratio_H12        0.165321               0
+ 17 LOG_REP_engine_size_H12              0.103730               0
+ 18 REP_IMP_bore_H12                     0.052137               0
+ 19 REP_IMP_stroke_H12                   0.146213               0
+ 20 REP_city_mpg_H12                     0.124868               0
+ 21 REP_curb_weight_H12                  0.031105               0
+ 22 REP_height_H12                       0.106650               0
+ 23 REP_highway_mpg_H12                 -0.176779               0
+ 24 REP_horsepower_H12                   0.084130               0
+ 25 REP_length_H12                       0.252598               0
+ 26 REP_peak_rpm_H12                     0.315968               0
+ 27 REP_wheel_base_H12                  -0.193933               0
+ 28 REP_width_H12                       -0.266920               0
+ 29 M_bore0_H11                         -0.236258               0
+ 30 M_num_of_doors0_H11                 -0.190865               0
+ 31 M_price0_H11                         0.062831               0
+ 32 M_stroke0_H11                       -0.191337               0
+ 33 M_bore0_H12                          0.086778               0
+ 34 M_num_of_doors0_H12                 -0.005956               0
+ 35 M_price0_H12                        -0.077887               0
+ 36 M_stroke0_H12                       -0.132601               0
+ 37 IMP_num_of_doors2_H11               -0.135116               0
+ 38 REP_aspirationS_H11                 -0.088615               0
+ 39 REP_body_styleC_H11                 -0.089588               0
+ 40 REP_body_styleH_H11                 -0.094233               0
+ 41 REP_body_styleS_H11                 -0.177970               0
+ 42 REP_drive_wheels4_H11                0.099076               0
+ 43 REP_drive_wheelsF_H11               -0.133221               0
+ 44 REP_engine_locationF_H11             0.277085               0
+ 45 REP_fuel_systemnonspdi_H11           0.068982               0
+ 46 REP_fuel_typeD_H11                  -0.245555               0
+ 47 REP_num_of_cylinders__4_H11         -0.061703               0
+ 48 engine_typedohc_H11                  0.350747               0
+ 49 engine_typel_H11                     0.050724               0
+ 50 engine_typeohc_H11                  -0.258674               0
+ 51 engine_typeohcf_H11                 -0.289778               0
+ 52 engine_typeohcv_H11                  0.104672               0
+ 53 IMP_num_of_doors2_H12               -0.082360               0
+ 54 REP_aspirationS_H12                 -0.417034               0
+ 55 REP_body_styleC_H12                  0.052404               0
+ 56 REP_body_styleH_H12                  0.033163               0
+ 57 REP_body_styleS_H12                 -0.176864               0
+ 58 REP_drive_wheels4_H12               -0.202775               0
+ 59 REP_drive_wheelsF_H12               -0.032232               0
+ 60 REP_engine_locationF_H12             0.243421               0
+ 61 REP_fuel_systemnonspdi_H12          -0.037759               0
+ 62 REP_fuel_typeD_H12                   0.068113               0
+ 63 REP_num_of_cylinders__4_H12          0.223530               0
+ 64 engine_typedohc_H12                  0.137724               0
+ 65 engine_typel_H12                    -0.145079               0
+ 66 engine_typeohc_H12                   0.041498               0
+ 67 engine_typeohcf_H12                  0.178549               0
+ 68 engine_typeohcv_H12                 -0.136737               0
+ 69 BIAS_H11                             1.536614               0
+ 70 BIAS_H12                            -0.549224               0
+ 71 H11_Risk1                                   0       -0.014057
+ 72 H12_Risk1                                   0        0.017701
+ 73 BIAS_Risk1                           0.160343    5.329071E-17
+ 
+Value of Objective Function = 0.6899437585
+ 
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+Levenberg-Marquardt Optimization
+ 
+ 
+Minimum Iterations                                0
+Maximum Iterations                               50
+Maximum Function Calls                   2147483647
+Maximum CPU Time                                300
+ABSGCONV Gradient Criterion                 0.00001
+GCONV Gradient Criterion                       1E-8
+GCONV2 Gradient Criterion                         0
+ABSFCONV Function Criterion                       0
+FCONV Function Criterion                     0.0001
+FCONV2 Function Criterion                         0
+FSIZE Parameter                                   0
+ABSXCONV Parameter Change Criterion               0
+XCONV Parameter Change Criterion                  0
+XSIZE Parameter                                   0
+ABSCONV Function Criterion             0.0013927149
+Trust Region Initial Radius Factor                1
+Singularity Tolerance (SINGULAR)               1E-8
+ 
+Levenberg-Marquardt Optimization
+ 
+Scaling Update of More (1978)
+ 
+Parameter Estimates              73
+ 
+                                      Optimization Start
+ 
+Active Constraints                           0  Objective Function                0.6899437585
+Max Abs Gradient Element          0.0177005107  Radius                                       1
+ 
+ 
+                                                                                         Ratio
+                                                                                       Between
+                                                                                        Actual
+                                                       Objective   Max Abs                 and
+                 Function       Active      Objective   Function  Gradient           Predicted
+Iter   Restarts     Calls  Constraints       Function     Change   Element   Lambda     Change
+ 
+   1*         0         2            0        0.67765     0.0123    0.2398  444E-16      0.645
+   2*         0         3            0        0.47134     0.2063    0.0974    0.105      0.749
+   3*         0         4            0        0.36632     0.1050    0.1332   0.0807      0.740
+   4*         0         5            0        0.27826     0.0881    0.0558   0.0589      0.697
+   5*         0         8            0        0.26103     0.0172    0.1051    0.167      0.234
+   6*         0         9            0        0.24838     0.0127    0.0779    0.153      0.139
+   7*         0        10            0        0.24753   0.000847    0.1218    0.172     0.0097
+   8*         0        11            0        0.19940     0.0481    0.0375    0.678      0.599
+   9*         0        12            0        0.18819     0.0112    0.0336    0.233      0.631
+  10*         0        13            0        0.17875    0.00944    0.0307    0.213      0.527
+  11*         0        14            0        0.17239    0.00637    0.0409    0.222      0.329
+  12*         0        15            0        0.16748    0.00491    0.0448    0.233      0.201
+  13*         0        16            0        0.16148    0.00600    0.0449    0.238      0.225
+  14*         0        17            0        0.15737    0.00411    0.0509    0.237      0.145
+  15*         0        18            0        0.15035    0.00702    0.0425    0.234      0.250
+  16*         0        19            0        0.14768    0.00267    0.0540    0.214     0.0992
+  17*         0        20            0        0.13632     0.0114    0.0218    0.695      0.612
+  18*         0        21            0        0.13181    0.00451    0.0191    0.266      0.891
+  19*         0        22            0        0.12407    0.00775    0.0191    0.130      0.897
+  20*         0        28            0        0.06133     0.0627    0.0280  0.00210      0.834
+  21*         0        30            0        0.05032     0.0110    0.0378  0.00185      0.529
+  22*         0        32            0        0.04532    0.00500    0.0209   0.0196      0.563
+  23*         0        33            0        0.04242    0.00290   0.00330   0.0121      0.735
+  24*         0        34            0        0.04194   0.000480   0.00735  0.00970      0.309
+  25*         0        35            0        0.04082    0.00112   0.00312  0.00690      0.552
+  26*         0        38            0        0.04056   0.000263   0.00222    0.175      0.462
+  27*         0        39            0        0.04043   0.000134   0.00161   0.0526      0.591
+  28*         0        40            0        0.04034   0.000083   0.00201   0.0514      0.439
+  29*         0        41            0        0.04023   0.000114   0.00160   0.0477      0.536
+  30*         0        42            0        0.04017   0.000062   0.00226   0.0507      0.309
+  31*         0        43            0        0.04005   0.000115   0.00165   0.0472      0.477
+  32*         0        44            0        0.04001   0.000045   0.00243   0.0505      0.211
+  33*         0        45            0        0.03989   0.000118   0.00168   0.0470      0.447
+  34*         0        46            0        0.03986   0.000034   0.00251   0.0503      0.153
+  35*         0        47            0        0.03973   0.000121   0.00169   0.0436      0.435
+  36*         0        48            0        0.03971   0.000025   0.00254   0.0504      0.110
+  37*         0        49            0        0.03959   0.000119   0.00163   0.0458      0.427
+  38*         0        50            0        0.03957   0.000023   0.00245   0.0493      0.106
+  39*         0        51            0        0.03946   0.000112   0.00154   0.0473      0.426
+  40*         0        52            0        0.03943   0.000023   0.00232   0.0475      0.116
+  41*         0        53            0        0.03933   0.000107   0.00151   0.0426      0.427
+  42*         0        54            0        0.03931   0.000020   0.00227   0.0467      0.102
+  43*         0        55            0        0.03920   0.000104   0.00146   0.0414      0.425
+  44*         0        56            0        0.03919   0.000017   0.00221   0.0455     0.0924
+  45*         0        57            0        0.03909   0.000096  0.000787    0.168      0.586
+  46*         0        58            0        0.03905   0.000040  0.000931   0.0637      0.846
+  47*         0        59            0        0.03897   0.000081  0.000785   0.0293      0.926
+  48*         0        60            0        0.03883   0.000139  0.000937   0.0153      0.879
+  49*         0        61            0        0.03842   0.000406  0.000699  0.00445      0.932
+  50*         0        62            0        0.03785   0.000572   0.00163  0.00193      0.760
+ 
+                                     Optimization Results
+ 
+Iterations                                  50  Function Calls                              64
+Jacobian Calls                              52  Active Constraints                           0
+Objective Function                0.0378502198  Max Abs Gradient Element          0.0016344001
+Lambda                            0.0019332054  Actual Over Pred Change           0.7595778337
+Radius                            1.1925002117
+ 
+LEVMAR needs more than 50 iterations or 2147483647 function calls.
+ 
+WARNING: LEVMAR Optimization cannot be completed.
+ 
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                       Optimization Results
+                       Parameter Estimates
+                                                         Gradient
+                                                        Objective
+  N Parameter                            Estimate        Function
+ 
+  1 LOG_REP_IMP_price_H11               -0.145509        0.001383
+  2 LOG_REP_compression_ratio_H11        1.094079        0.000190
+  3 LOG_REP_engine_size_H11             -1.433869        0.001017
+  4 REP_IMP_bore_H11                    -1.141726        0.000807
+  5 REP_IMP_stroke_H11                   1.579650        0.000311
+  6 REP_city_mpg_H11                    -3.747377       -0.000626
+  7 REP_curb_weight_H11                 -0.400638        0.001129
+  8 REP_height_H11                       1.009768     0.000016598
+  9 REP_highway_mpg_H11                 -0.539882       -0.001039
+ 10 REP_horsepower_H11                   0.286018        0.001060
+ 11 REP_length_H11                      -1.160766        0.000971
+ 12 REP_peak_rpm_H11                     2.535768        0.000375
+ 13 REP_wheel_base_H11                  -2.116103        0.000717
+ 14 REP_width_H11                       -0.036411        0.000993
+ 15 LOG_REP_IMP_price_H12               -1.189718     0.000054867
+ 16 LOG_REP_compression_ratio_H12        0.972254    -0.000024489
+ 17 LOG_REP_engine_size_H12              0.980921       -0.000122
+ 18 REP_IMP_bore_H12                     0.497792    -0.000090221
+ 19 REP_IMP_stroke_H12                   2.034664       -0.000149
+ 20 REP_city_mpg_H12                    -0.036615     0.000032937
+ 21 REP_curb_weight_H12                  0.479401    -0.000002752
+ 22 REP_height_H12                       2.059955       -0.000135
+ 23 REP_highway_mpg_H12                 -1.491625        0.000158
+ 24 REP_horsepower_H12                  -0.977689     0.000067769
+ 25 REP_length_H12                       0.858633     0.000011075
+ 26 REP_peak_rpm_H12                     2.291166    -0.000047824
+ 27 REP_wheel_base_H12                   1.388287       -0.000158
+ 28 REP_width_H12                       -1.950968     0.000000600
+ 29 M_bore0_H11                         -0.398694       -0.001554
+ 30 M_num_of_doors0_H11                 -0.218859       -0.001554
+ 31 M_price0_H11                         1.034888       -0.001560
+ 32 M_stroke0_H11                       -0.353772       -0.001554
+ 33 M_bore0_H12                          0.126095    -0.000048981
+ 34 M_num_of_doors0_H12                 -0.064934    -0.000048395
+ 35 M_price0_H12                        -0.588415    -0.000048534
+ 36 M_stroke0_H12                       -0.093283    -0.000048981
+ 37 IMP_num_of_doors2_H11                2.684990        0.001269
+ 38 REP_aspirationS_H11                  0.076207       -0.001526
+ 39 REP_body_styleC_H11                  0.866484    -0.000005870
+ 40 REP_body_styleH_H11                  0.566774       -0.000657
+ 41 REP_body_styleS_H11                 -0.726406       -0.000538
+ 42 REP_drive_wheels4_H11               -0.197849        0.000195
+ 43 REP_drive_wheelsF_H11                1.781955       -0.001634
+ 44 REP_engine_locationF_H11             0.013867       -0.001554
+ 45 REP_fuel_systemnonspdi_H11          -0.208064       -0.001554
+ 46 REP_fuel_typeD_H11                   0.218678        0.001388
+ 47 REP_num_of_cylinders__4_H11          0.844482       -0.001501
+ 48 engine_typedohc_H11                  0.498852    -0.000002714
+ 49 engine_typel_H11                    -0.008277    5.423845E-11
+ 50 engine_typeohc_H11                  -0.113409       -0.001551
+ 51 engine_typeohcf_H11                 -0.787374    -0.000010333
+ 52 engine_typeohcv_H11                  0.185708     0.000010120
+ 53 IMP_num_of_doors2_H12               -0.381408     0.000059177
+ 54 REP_aspirationS_H12                 -0.654918     0.000036381
+ 55 REP_body_styleC_H12                 -1.120945     0.000035928
+ 56 REP_body_styleH_H12                  0.589749     0.000008804
+ 57 REP_body_styleS_H12                 -0.843994    -0.000065482
+ 58 REP_drive_wheels4_H12               -0.927294     0.000080441
+ 59 REP_drive_wheelsF_H12               -0.189726        0.000130
+ 60 REP_engine_locationF_H12             0.231742    -0.000048538
+ 61 REP_fuel_systemnonspdi_H12           0.288236    -0.000053867
+ 62 REP_fuel_typeD_H12                   1.266188    -0.000081694
+ 63 REP_num_of_cylinders__4_H12          0.142468     0.000017898
+ 64 engine_typedohc_H12                 -0.083147     0.000006431
+ 65 engine_typel_H12                     0.089708    -0.000003373
+ 66 engine_typeohc_H12                   0.082764    -0.000043217
+ 67 engine_typeohcf_H12                  0.330557    -0.000001720
+ 68 engine_typeohcv_H12                 -0.127555    -0.000007988
+ 69 BIAS_H11                             1.384056       -0.001554
+ 70 BIAS_H12                            -0.598433    -0.000048538
+ 71 H11_Risk1                            5.717864       -0.000397
+ 72 H12_Risk1                           -7.327721        0.000685
+ 73 BIAS_Risk1                          -4.166124        0.000104
+ 
+Value of Objective Function = 0.0378502198
+ 
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=Risk Target Label=' '
+ 
+   Fit
+Statistics    Statistics Label                     Train    Validation
+ 
+ _DFT_        Total Degrees of Freedom           100.000         .
+ _DFE_        Degrees of Freedom for Error        27.000         .
+ _DFM_        Model Degrees of Freedom            73.000         .
+ _NW_         Number of Estimated Weights         73.000         .
+ _AIC_        Akaike's Information Criterion     180.477         .
+ _SBC_        Schwarz's Bayesian Criterion       370.655         .
+ _ASE_        Average Squared Error                0.047        0.086
+ _MAX_        Maximum Absolute Error               0.886        0.973
+ _DIV_        Divisor for ASE                    200.000      200.000
+ _NOBS_       Sum of Frequencies                 100.000      100.000
+ _RASE_       Root Average Squared Error           0.216        0.293
+ _SSE_        Sum of Squared Errors                9.328       17.195
+ _SUMW_       Sum of Case Weights Times Freq     200.000      200.000
+ _FPE_        Final Prediction Error               0.299         .
+ _MSE_        Mean Squared Error                   0.173        0.086
+ _RFPE_       Root Final Prediction Error          0.547         .
+ _RMSE_       Root Mean Squared Error              0.416        0.293
+ _AVERR_      Average Error Function               0.172        0.289
+ _ERR_        Error Function                      34.477       57.731
+ _MISC_       Misclassification Rate               0.070        0.120
+ _WRONG_      Number of Wrong Classifications      7.000       12.000
+ 
+ 
+ 
+ 
+Classification Table
+ 
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+ 
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+ 
+  0          0         95.3488       89.1304         41           41
+  1          0          4.6512        3.7037          2            2
+  0          1          8.7719       10.8696          5            5
+  1          1         91.2281       96.2963         52           52
+ 
+ 
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+ 
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+ 
+  0          0         90.2439       82.2222         37           37
+  1          0          9.7561        7.2727          4            4
+  0          1         13.5593       17.7778          8            8
+  1          1         86.4407       92.7273         51           51
+ 
+ 
+ 
+ 
+Event Classification Table
+ 
+Data Role=TRAIN Target=Risk Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+    2          41           5          52
+ 
+ 
+Data Role=VALIDATE Target=Risk Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+    4          37           8          51
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+ 
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth     Gain      Lift       Lift      Response   % Response   Observations   Probability
+ 
+   5    85.1852   1.85185     1.85185       100       100.000          5          0.97996
+  10    85.1852   1.85185     1.85185       100       100.000          5          0.97842
+  15    85.1852   1.85185     1.85185       100       100.000          5          0.97735
+  20    85.1852   1.85185     1.85185       100       100.000          5          0.97568
+  25    85.1852   1.85185     1.85185       100       100.000          5          0.97122
+  30    85.1852   1.85185     1.85185       100       100.000          5          0.95814
+  35    85.1852   1.85185     1.85185       100       100.000          5          0.94778
+  40    85.1852   1.85185     1.85185       100       100.000          5          0.90953
+  45    85.1852   1.85185     1.85185       100       100.000          5          0.83483
+  50    85.1852   1.85185     1.85185       100       100.000          5          0.71393
+  55    75.0842   0.74074     1.75084        40        94.545          5          0.63536
+  60    63.5802   0.37037     1.63580        20        88.333          5          0.43859
+  65    50.9972   0.00000     1.50997         0        81.538          5          0.24007
+  70    40.2116   0.00000     1.40212         0        75.714          5          0.14242
+  75    30.8642   0.00000     1.30864         0        70.667          5          0.12548
+  80    25.0000   0.37037     1.25000        20        67.500          5          0.10342
+  85    17.6471   0.00000     1.17647         0        63.529          5          0.04723
+  90    11.1111   0.00000     1.11111         0        60.000          5          0.00904
+  95     5.2632   0.00000     1.05263         0        56.842          5          0.00290
+ 100     0.0000   0.00000     1.00000         0        54.000          5          0.00167
+ 
+ 
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+ 
+                                                                                    Mean
+                            Cumulative       %      Cumulative     Number of     Posterior
+Depth     Gain      Lift       Lift      Response   % Response   Observations   Probability
+ 
+   5    81.8182   1.81818     1.81818       100       100.000          5          0.98020
+  10    81.8182   1.81818     1.81818       100       100.000          5          0.97972
+  15    81.8182   1.81818     1.81818       100       100.000          5          0.97857
+  20    81.8182   1.81818     1.81818       100       100.000          5          0.97700
+  25    74.5455   1.45455     1.74545        80        96.000          5          0.97155
+  30    75.7576   1.81818     1.75758       100        96.667          5          0.96015
+  35    76.6234   1.81818     1.76623       100        97.143          5          0.94798
+  40    72.7273   1.45455     1.72727        80        95.000          5          0.89543
+  45    73.7374   1.81818     1.73737       100        95.556          5          0.83078
+  50    70.9091   1.45455     1.70909        80        94.000          5          0.73553
+  55    63.6364   0.90909     1.63636        50        90.000          5          0.55264
+  60    57.5758   0.90909     1.57576        50        86.667          5          0.51674
+  65    45.4545   0.00000     1.45455         0        80.000          5          0.38032
+  70    37.6623   0.36364     1.37662        20        75.714          5          0.17110
+  75    28.4848   0.00000     1.28485         0        70.667          5          0.13351
+  80    25.0000   0.72727     1.25000        40        68.750          5          0.08988
+  85    17.6471   0.00000     1.17647         0        64.706          5          0.03513
+  90    11.1111   0.00000     1.11111         0        61.111          5          0.00605
+  95     5.2632   0.00000     1.05263         0        57.895          5          0.00222
+ 100     0.0000   0.00000     1.00000         0        55.000          5          0.00156
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=Risk Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.95-1.00       32           0         0.97208          32
+ 0.90-0.95        6           0         0.93153           6
+ 0.85-0.90        4           0         0.88508           4
+ 0.80-0.85        2           0         0.82016           2
+ 0.75-0.80        2           0         0.77351           2
+ 0.70-0.75        2           0         0.72023           2
+ 0.65-0.70        3           0         0.68012           3
+ 0.60-0.65        1           2         0.63881           3
+ 0.55-0.60        0           1         0.59024           1
+ 0.50-0.55        0           2         0.50242           2
+ 0.45-0.50        0           1         0.49200           1
+ 0.35-0.40        1           0         0.35024           1
+ 0.30-0.35        0           2         0.34223           2
+ 0.20-0.25        0           3         0.22108           3
+ 0.15-0.20        0           3         0.17016           3
+ 0.10-0.15        1          10         0.12348          11
+ 0.05-0.10        0           4         0.07664           4
+ 0.00-0.05        0          18         0.01023          18
+ 
+ 
+Data Role=VALIDATE Target Variable=Risk Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.95-1.00       31           1         0.97333          32
+ 0.90-0.95        5           0         0.92757           5
+ 0.85-0.90        4           1         0.87893           5
+ 0.80-0.85        2           0         0.81516           2
+ 0.75-0.80        4           0         0.78270           4
+ 0.65-0.70        1           1         0.67212           2
+ 0.55-0.60        1           0         0.59996           1
+ 0.50-0.55        3           5         0.53850           8
+ 0.40-0.45        1           3         0.42206           4
+ 0.30-0.35        0           2         0.32613           2
+ 0.15-0.20        1           3         0.17791           4
+ 0.10-0.15        0           7         0.13333           7
+ 0.05-0.10        2           3         0.07869           5
+ 0.00-0.05        0          19         0.00836          19

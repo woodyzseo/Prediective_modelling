@@ -1,0 +1,78 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+INPUT        INTERVAL          14   
+INPUT        NOMINAL            9   
+REJECTED     INTERVAL           1   
+REJECTED     NOMINAL            2   
+TARGET       BINARY             1   
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The CONTENTS Procedure
+
+Data Set Name        EMWS1.FIMPORT_DATA            Observations          205
+Member Type          DATA                          Variables             27 
+Engine               V9                            Indexes               0  
+Created              2021-04-05 12:05:57           Observation Length    208
+Last Modified        2021-04-05 12:05:57           Deleted Observations  0  
+Protection                                         Compressed            NO 
+Data Set Type                                      Sorted                NO 
+Label                                                                       
+Data Representation  WINDOWS_32                                             
+Encoding             wlatin1  Western (Windows)                             
+
+
+                             Engine/Host Dependent Information
+
+Data Set Page Size          65536                                                           
+Number of Data Set Pages    1                                                               
+First Data Page             1                                                               
+Max Obs per Page            314                                                             
+Obs in First Data Page      205                                                             
+Number of Data Set Repairs  0                                                               
+ExtendObsCounter            YES                                                             
+Filename                    H:\746\Decision Tree test\Workspaces\EMWS1\fimport_data.sas7bdat
+Release Created             9.0401M2                                                        
+Host Created                W32_8PRO                                                        
+
+
+                    Alphabetic List of Variables and Attributes
+ 
+ #    Variable             Type    Len    Format     Informat    Label
+
+ 2    Risk                 Num       8    BEST12.    BEST32.                      
+ 4    aspiration           Char      5    $5.        $5.                          
+15    body_style           Char     11                           body-style       
+ 8    bore                 Num       8    BEST12.    BEST32.                      
+26    city_mpg             Num       8                           city-mpg         
+24    compression_ratio    Num       8                           compression-ratio
+19    curb_weight          Num       8                           curb-weight      
+16    drive_wheels         Char      3                           drive-wheels     
+17    engine_location      Char      5                           engine-location  
+22    engine_size          Num       8                           engine-size      
+20    engine_type          Char      5                           engine-type      
+23    fuel_system          Char      4                           fuel-system      
+13    fuel_type            Char      6                           fuel-type        
+ 7    height               Num       8    BEST12.    BEST32.                      
+27    highway_mpg          Num       8                           highway-mpg      
+10    horsepower           Num       8    BEST12.    BEST32.                      
+ 5    length               Num       8    BEST12.    BEST32.                      
+ 3    make                 Char     13    $13.       $13.                         
+12    normalized_losses    Num       8                           normalized-losses
+21    num_of_cylinders     Char      6                           num-of-cylinders 
+14    num_of_doors         Num       8                           num-of-doors     
+25    peak_rpm             Num       8                           peak-rpm         
+11    price                Num       8    BEST12.    BEST32.                      
+ 9    stroke               Num       8    BEST12.    BEST32.                      
+ 1    symboling            Num       8    BEST12.    BEST32.                      
+18    wheel_base           Num       8                           wheel-base       
+ 6    width                Num       8    BEST12.    BEST32.                      

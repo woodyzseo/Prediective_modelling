@@ -1,0 +1,78 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 05, 2021
+Time:                13:09:54 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        BINARY             4
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL           1
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Limits and Replacement Values for Interval Variables
+ 
+                                                             Lower                      Upper
+                                                 Lower    Replacement       Upper    Replacement
+Variable             Replace Variable            limit       Value          Limit       Value
+ 
+IMP_bore             REP_IMP_bore                 2.56          2.56         4.04          4.04
+IMP_price            REP_IMP_price            -8881.56      -8881.56     34427.95      34427.95
+IMP_stroke           REP_IMP_stroke               2.35          2.35         4.15          4.15
+city_mpg             REP_city_mpg                 7.36          7.36        43.86         43.86
+compression_ratio    REP_compression_ratio       -2.27         -2.27        23.02         23.02
+curb_weight          REP_curb_weight           1095.90       1095.90      3938.80       3938.80
+engine_size          REP_engine_size             20.51         20.51       226.83        226.83
+height               REP_height                  46.55         46.55        61.33         61.33
+highway_mpg          REP_highway_mpg             12.42         12.42        49.90         49.90
+horsepower           REP_horsepower              -9.27         -9.27       210.11        210.11
+length               REP_length                 139.37        139.37       207.69        207.69
+peak_rpm             REP_peak_rpm              3690.50       3690.50      6570.50       6570.50
+wheel_base           REP_wheel_base              81.95         81.95       115.18        115.18
+width                REP_width                   60.19         60.19        71.20         71.20
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Replacement Counts
+ 
+Obs    Variable             Label                Role     Train    Validation
+ 
+  1    IMP_bore             Imputed bore         INPUT      0           1
+  2    IMP_price            Imputed price        INPUT      3           4
+  3    IMP_stroke           Imputed stroke       INPUT      3           2
+  4    city_mpg             city-mpg             INPUT      1           1
+  5    compression_ratio    compression-ratio    INPUT      0           0
+  6    curb_weight          curb-weight          INPUT      1           1
+  7    engine_size          engine-size          INPUT      1           5
+  8    height               height               INPUT      0           0
+  9    highway_mpg          highway-mpg          INPUT      1           1
+ 10    horsepower           horsepower           INPUT      0           0
+ 11    length               length               INPUT      0           1
+ 12    peak_rpm             peak-rpm             INPUT      0           2
+ 13    wheel_base           wheel-base           INPUT      0           3
+ 14    width                width                INPUT      1           6

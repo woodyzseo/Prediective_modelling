@@ -1,0 +1,74 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 05, 2021
+Time:                13:09:24 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL           1
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+ 
+ 
+ 
+ 
+Partition Summary
+ 
+                                     Number of
+Type             Data Set          Observations
+ 
+DATA        EMWS1.Filter_TRAIN          200
+TRAIN       EMWS1.Part_TRAIN            100
+VALIDATE    EMWS1.Part_VALIDATE         100
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Summary Statistics for Class Targets
+ 
+Data=DATA
+ 
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+ 
+  Risk         0           0            91         45.5
+  Risk         1           1           109         54.5
+ 
+ 
+Data=TRAIN
+ 
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+ 
+  Risk         0           0            46          46
+  Risk         1           1            54          54
+ 
+ 
+Data=VALIDATE
+ 
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+ 
+  Risk         0           0            45          45
+  Risk         1           1            55          55

@@ -1,0 +1,84 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 05, 2021
+Time:                13:09:17 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL           1
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+Filter Limits for Interval Variables
+(maximum 500 observations printed)
+ 
+                                                        Keep
+                                             Filter    Missing
+ Variable     Role     Minimum    Maximum    Method    Values     Label
+ 
+horsepower    INPUT       1          .       MANUAL       Y
+ 
+ 
+ 
+Excluded Class Values
+(maximum 500 observations printed)
+ 
+                                            Train     Train                         Filter
+    Variable        Role     Level          Count    Percent         Label          Method
+ 
+engine_type         INPUT    DOHCV              1    0.48780    engine-type         MINPCT
+fuel_system         INPUT    MFI                1    0.48780    fuel-system         MINPCT
+fuel_system         INPUT    SPFI               1    0.48780    fuel-system         MINPCT
+num_of_cylinders    INPUT    THREE              1    0.48780    num-of-cylinders    MINPCT
+num_of_cylinders    INPUT    TWELVE             1    0.48780    num-of-cylinders    MINPCT
+ 
+ 
+ 
+ 
+Number Of Observations
+ 
+Data
+Role     Filtered    Excluded    DATA
+ 
+TRAIN       200          5        205
+ 
+ 
+ 
+Statistics for Original and FILTERED Data
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN Variable=horsepower
+ 
+Statistics            Original    Filtered
+ 
+Non Missing            203.000     198.000
+Missing                  2.000       2.000
+Minimum                 48.000      52.000
+Maximum                288.000     207.000
+Mean                   104.256     102.682
+Standard Deviation      39.714      35.938
+Skewness                 1.391       0.952
+Kurtosis                 2.623       0.228
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*

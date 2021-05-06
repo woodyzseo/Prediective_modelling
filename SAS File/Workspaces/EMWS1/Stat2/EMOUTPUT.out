@@ -1,0 +1,357 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 05, 2021
+Time:                12:35:05 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+ID           INTERVAL           1
+INPUT        BINARY             6
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL           1
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+ 
+ 
+ 
+Variable Levels Summary
+(maximum 500 observations printed)
+ 
+                       Frequency
+Variable     Role        Count
+ 
+Risk         TARGET         2
+_dataobs_    ID           101
+ 
+ 
+ 
+Class Variable Summary Statistics
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN
+ 
+                                       Number
+Data                                     of                             Mode                      Mode2
+Role     Variable Name        Role     Levels    Missing    Mode     Percentage    Mode2        Percentage
+ 
+TRAIN    IMP_num_of_doors    INPUT        2         0       4          57.43       2              42.57
+TRAIN    aspiration          INPUT        2         0       std        81.19       turbo          18.81
+TRAIN    body_style          INPUT        5         0       sedan      47.52       hatchback      32.67
+TRAIN    drive_wheels        INPUT        3         0       fwd        59.41       rwd            37.62
+TRAIN    engine_type         INPUT        6         0       ohc        73.27       dohc            6.93
+TRAIN    fuel_system         INPUT        7         0       mpfi       49.50       2bbl           27.72
+TRAIN    fuel_type           INPUT        2         0       gas        91.09       diesel          8.91
+TRAIN    num_of_cylinders    INPUT        6         0       four       78.22       six            12.87
+TRAIN    Risk                TARGET       2         0       1          55.45       0              44.55
+ 
+ 
+ 
+Distribution of Class Target and Segment Variables
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN
+ 
+Data     Variable                        Frequency
+Role       Name       Role     Level         Count    Percent
+ 
+TRAIN      Risk      TARGET      1              56    55.4455
+TRAIN      Risk      TARGET      0              45    44.5545
+ 
+ 
+ 
+Interval Variable Summary Statistics
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN
+ 
+                                          Standard          Non
+Variable             Role         Mean    Deviation     Missing     Missing     Minimum      Median     Maximum    Skewness    Kurtosis
+ 
+IMP_bore             INPUT    3.318265    0.256687          101           0        2.54        3.31        3.78    -0.19618    -0.55016
+IMP_horsepower       INPUT      102.68     33.1125          101           0          48          97         207    0.883525    0.363367
+IMP_peak_rpm         INPUT        5151    491.8323          101           0        4150        5200        6600    0.024733    0.060304
+IMP_price            INPUT    12929.37    7296.869          101           0        5151       10698       41315    1.934647    4.153973
+IMP_stroke           INPUT    3.278673    0.296755          101           0        2.07        3.29        4.17    -0.70484    3.044933
+city_mpg             INPUT    25.08911    6.536205          101           0          15          24          47     0.86898    0.858709
+compression_ratio    INPUT    10.01099    3.877788          101           0           7           9          23    2.797992    6.363319
+curb_weight          INPUT    2533.495    491.3057          101           0        1488        2405        4066    0.566792    -0.02325
+engine_size          INPUT    123.6238    34.77552          101           0          61         120         258    1.268221    2.243616
+height               INPUT    53.92277    2.325979          101           0        48.8        54.3        59.8     -0.1655    -0.35455
+highway_mpg          INPUT    30.56436    6.822633          101           0          18          30          53     0.80586    0.757831
+length               INPUT    174.0723     12.3932          101           0       141.1       173.5       202.6    -0.05635    -0.14494
+wheel_base           INPUT    98.86436     5.65147          101           0        86.6        97.3       115.6    0.871708    0.804389
+width                INPUT    65.74554    1.955174          101           0        60.3        65.5        71.7    0.648512    1.067221
+ 
+ 
+ 
+Class Variable Summary Statistics by Class Target
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN Variable Name=IMP_num_of_doors
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          2         0        4        91.11         2         8.89
+Risk           1          2         0        2        69.64         4        30.36
+_OVERALL_                 2         0        4        57.43         2        42.57
+ 
+ 
+Data Role=TRAIN Variable Name=aspiration
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          2         0       std       77.78       turbo      22.22
+Risk           1          2         0       std       83.93       turbo      16.07
+_OVERALL_                 2         0       std       81.19       turbo      18.81
+ 
+ 
+Data Role=TRAIN Variable Name=body_style
+ 
+                       Number
+             Target      of                                 Mode                      Mode2
+Target       Level     Levels    Missing    Mode         Percentage    Mode2        Percentage
+ 
+Risk           0          4         0       sedan          57.78       wagon          26.67
+Risk           1          5         0       hatchback      48.21       sedan          39.29
+_OVERALL_                 5         0       sedan          47.52       hatchback      32.67
+ 
+ 
+Data Role=TRAIN Variable Name=drive_wheels
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          3         0       rwd       48.89        fwd       46.67
+Risk           1          3         0       fwd       69.64        rwd       28.57
+_OVERALL_                 3         0       fwd       59.41        rwd       37.62
+ 
+ 
+Data Role=TRAIN Variable Name=engine_type
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          5         0       ohc       66.67       l          13.33
+Risk           1          6         0       ohc       78.57       dohc        8.93
+_OVERALL_                 6         0       ohc       73.27       dohc        6.93
+ 
+ 
+Data Role=TRAIN Variable Name=fuel_system
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          4         0       mpfi      60.00       2bbl       17.78
+Risk           1          7         0       mpfi      41.07       2bbl       35.71
+_OVERALL_                 7         0       mpfi      49.50       2bbl       27.72
+ 
+ 
+Data Role=TRAIN Variable Name=fuel_type
+ 
+                       Number
+             Target      of                            Mode                   Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2     Percentage
+ 
+Risk           0          2         0       gas       86.67       diesel      13.33
+Risk           1          2         0       gas       94.64       diesel       5.36
+_OVERALL_                 2         0       gas       91.09       diesel       8.91
+ 
+ 
+Data Role=TRAIN Variable Name=num_of_cylinders
+ 
+                       Number
+             Target      of                            Mode                  Mode2
+Target       Level     Levels    Missing    Mode    Percentage    Mode2    Percentage
+ 
+Risk           0          4         0       four      73.33        six       20.00
+Risk           1          5         0       four      82.14        six        7.14
+_OVERALL_                 6         0       four      78.22        six       12.87
+ 
+ 
+ 
+Interval Variable Summary Statistics by Class Target
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN Variable=IMP_bore
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role        Label
+ 
+Risk           0           3.43           0          45        2.91        3.78    3.422222    0.222475     -0.43845    -0.25234    INPUT    Imputed bore
+Risk           1           3.19           0          56        2.54        3.74    3.234728    0.253482     0.076767     -0.3713    INPUT    Imputed bore
+_OVERALL_                  3.31           0         101        2.54        3.78    3.318265    0.256687     -0.19618    -0.55016    INPUT    Imputed bore
+ 
+ 
+Data Role=TRAIN Variable=IMP_horsepower
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role           Label
+ 
+Risk           0             97           0          45          56         182     109.704    32.05239       0.8713    -0.14459    INPUT    Imputed horsepower
+Risk           1             90           0          56          48         207    97.03571    33.14868     1.036937    1.078296    INPUT    Imputed horsepower
+_OVERALL_                    97           0         101          48         207      102.68     33.1125     0.883525    0.363367    INPUT    Imputed horsepower
+ 
+ 
+Data Role=TRAIN Variable=IMP_peak_rpm
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role           Label
+ 
+Risk           0           5000           0          45        4150        6000    5015.578    512.9988     -0.07589    -0.64965    INPUT    Imputed: peak-rpm
+Risk           1           5200           0          56        4250        6600    5259.821    449.6887     0.379882    0.514127    INPUT    Imputed: peak-rpm
+_OVERALL_                  5200           0         101        4150        6600        5151    491.8323     0.024733    0.060304    INPUT    Imputed: peak-rpm
+ 
+ 
+Data Role=TRAIN Variable=IMP_price
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role         Label
+ 
+Risk           0          11900           0          45        6575       41315    15216.38    8487.174      1.59397    2.110835    INPUT    Imputed price
+Risk           1           8845           0          56        5151       37028     11091.6    5609.266      2.16976    7.310307    INPUT    Imputed price
+_OVERALL_                 10698           0         101        5151       41315    12929.37    7296.869     1.934647    4.153973    INPUT    Imputed price
+ 
+ 
+Data Role=TRAIN Variable=IMP_stroke
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role         Label
+ 
+Risk           0           3.35           0          45        2.64        4.17       3.298    0.304606     -0.20841    1.539372    INPUT    Imputed stroke
+Risk           1           3.29           0          56        2.07         3.9    3.263143    0.292124     -1.19203    4.670394    INPUT    Imputed stroke
+_OVERALL_                  3.29           0         101        2.07        4.17    3.278673    0.296755     -0.70484    3.044933    INPUT    Imputed stroke
+ 
+ 
+Data Role=TRAIN Variable=city_mpg
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role      Label
+ 
+Risk           0             23           0          45          15          38    23.37778    5.424225     0.605275    0.557402    INPUT    city-mpg
+Risk           1             25           0          56          17          47    26.46429    7.058108     0.812207    0.455198    INPUT    city-mpg
+_OVERALL_                    24           0         101          15          47    25.08911    6.536205      0.86898    0.858709    INPUT    city-mpg
+ 
+ 
+Data Role=TRAIN Variable=compression_ratio
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role           Label
+ 
+Risk           0            8.7           0          45           7          23    10.41778    4.602533      2.18587    3.084197    INPUT    compression-ratio
+Risk           1            9.2           0          56           7          23    9.684107    3.185844     3.755834    13.63667    INPUT    compression-ratio
+_OVERALL_                     9           0         101           7          23    10.01099    3.877788     2.797992    6.363319    INPUT    compression-ratio
+ 
+ 
+Data Role=TRAIN Variable=curb_weight
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role        Label
+ 
+Risk           0           2650           0          45        1909        4066    2779.089    500.7014     0.422894     -0.4909    INPUT    curb-weight
+Risk           1           2275           0          56        1488        3139    2336.143    386.4036     0.279464    -0.81736    INPUT    curb-weight
+_OVERALL_                  2405           0         101        1488        4066    2533.495    491.3057     0.566792    -0.02325    INPUT    curb-weight
+ 
+ 
+Data Role=TRAIN Variable=engine_size
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role        Label
+ 
+Risk           0            122           0          45          90         258    137.2222    36.92245     1.497465    2.211252    INPUT    engine-size
+Risk           1            103           0          56          61         194    112.6964    28.90166     0.841735    0.334849    INPUT    engine-size
+_OVERALL_                   120           0         101          61         258    123.6238    34.77552     1.268221    2.243616    INPUT    engine-size
+ 
+ 
+Data Role=TRAIN Variable=height
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role     Label
+ 
+Risk           0           54.9           0          45          52        59.8    55.24889    1.728981     0.547833    0.220476    INPUT    height
+Risk           1           52.6           0          56        48.8        56.1    52.85714    2.202301     -0.05447    -1.28508    INPUT    height
+_OVERALL_                  54.3           0         101        48.8        59.8    53.92277    2.325979      -0.1655    -0.35455    INPUT    height
+ 
+ 
+Data Role=TRAIN Variable=highway_mpg
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role        Label
+ 
+Risk           0             28           0          45          18          47    28.42222    5.910272     0.730024    1.236983    INPUT    highway-mpg
+Risk           1             30           0          56          22          53    32.28571    7.065188     0.780865    0.395302    INPUT    highway-mpg
+_OVERALL_                    30           0         101          18          53    30.56436    6.822633      0.80586    0.757831    INPUT    highway-mpg
+ 
+ 
+Data Role=TRAIN Variable=length
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role     Label
+ 
+Risk           0          177.8           0          45       157.1       202.6    180.7867    10.62999     0.012148    -0.25636    INPUT    length
+Risk           1            169           0          56       141.1       192.7    168.6768    11.06043     -0.10024    -0.10007    INPUT    length
+_OVERALL_                 173.5           0         101       141.1       202.6    174.0723     12.3932     -0.05635    -0.14494    INPUT    length
+ 
+ 
+Data Role=TRAIN Variable=wheel_base
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role       Label
+ 
+Risk           0          101.2           0          45        94.3       115.6    102.5133    5.717541     0.596824    -0.46305    INPUT    wheel-base
+Risk           1           95.3           0          56        86.6       105.8    95.93214    3.502939      0.06548    1.253763    INPUT    wheel-base
+_OVERALL_                  97.3           0         101        86.6       115.6    98.86436     5.65147     0.871708    0.804389    INPUT    wheel-base
+ 
+ 
+Data Role=TRAIN Variable=width
+ 
+             Target                                 Non                                        Standard
+Target       Level       Median     Missing     Missing     Minimum     Maximum        Mean    Deviation    Skewness    Kurtosis    Role     Label
+ 
+Risk           0           66.5           0          45        61.8        71.7    66.62889    2.013548     0.311596     0.26888    INPUT    width
+Risk           1             65           0          56        60.3        71.4    65.03571    1.598571     0.847969     4.17973    INPUT    width
+_OVERALL_                  65.5           0         101        60.3        71.7    65.74554    1.955174     0.648512    1.067221    INPUT    width
+ 
+ 
+ 
+Chi-Square Statistics
+(maximum 500 observations printed)
+ 
+Data Role=TRAIN Target=Risk
+ 
+Input               Chi-Square    Df      Prob
+ 
+IMP_num_of_doors       37.6682     1    <.0001
+body_style             26.4538     4    <.0001
+fuel_system            14.0987     6    0.0286
+engine_type            11.1062     5    0.0493
+num_of_cylinders        7.9587     5    0.1585
+drive_wheels            5.5485     2    0.0624
+fuel_type               1.9556     1    0.1620
+aspiration              0.6180     1    0.4318
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*

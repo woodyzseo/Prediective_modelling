@@ -1,0 +1,342 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1 
+Traverser: Traverser invoked.  MPCONNECT command is sas. 
+Traverser: Beginning flow traversal 
+*------------------------------------------------------------* 
+* 
+* FIMPORT : Beginning Update 
+* datetime : 16APR2021:11:55:17 
+* 
+*------------------------------------------------------------* 
+21810      %let emexceptionString =;
+21811      %let EMEXCEPTIONSTRING=;
+21812      *------------------------------------------------------------*;
+21813      * UPDATE: FIMPORT;
+21814      *------------------------------------------------------------*;
+21815      %let EM_ACTION = UPDATE;
+21816      %let syscc = 0;
+21817      /* Fimport.source */
+21818      %macro main;
+21819            %if %upcase(&EM_ACTION) = CREATE %then %do;
+21820               filename temp catalog 'sashelp.emsamp.Fimport_create.source';
+21821               %include temp;
+21822               filename temp;
+21823               %create;
+21824            %end;
+21825            %else
+21826            %if %upcase(&EM_ACTION) = TRAIN %then %do;
+21827               filename temp catalog 'sashelp.emsamp.Fimport_train.source';
+21828               %include temp;
+21829               filename temp;
+21830               %train;
+21831            %end;
+21832            %else
+21833            %if %upcase(&EM_ACTION) = UPDATE %then %do;
+21834               filename temp catalog 'sashelp.emsamp.Fimport_update.source';
+21835               %include temp;
+21836               filename temp;
+21837               %update;
+21838            %end;
+21839            %else
+21840            %if %upcase(&EM_ACTION) = PROPERTY %then %do;
+21841               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+21842               %include temp;
+21843               filename temp;
+21844               %property;
+21845            %end;
+21846             %else
+21847            %if %upcase(&EM_ACTION) = SCORE %then %do;
+21848               filename temp catalog 'sashelp.emsamp.Fimport_score.source';
+21849               %include temp;
+21850               filename temp;
+21851               %score;
+21852            %end;
+21853            %else
+21854            %if %upcase(&EM_ACTION) = REPORT %then %do;
+21855               filename temp catalog 'sashelp.emsamp.Fimport_report.source';
+21856               %include temp;
+21857               filename temp;
+21858               %report;
+21859            %end;
+21860            %else
+21861            %if %upcase(&EM_ACTION) = OPENVARIABLESET %then %do;
+21862               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+21863               %include temp;
+21864               filename temp;
+21865               %openvariableset;
+21866            %end;
+21867            %else
+21868            %if %upcase(&EM_ACTION) = CLOSEVARIABLESET %then %do;
+21869               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+21870               %include temp;
+21871               filename temp;
+21872               %closevariableset;
+21873            %end;
+21874      %mend main;
+21875      %main;
+NOTE: %INCLUDE (level 1) file TEMP is file SASHELP.EMSAMP.FIMPORT_UPDATE.SOURCE.
+21876     +%macro update;
+21877     +    %let oldrole = %str();
+21878     +    data _null_;
+21879     +       set &em_data_exportset;
+21880     +       where NODEPORT='TRAIN';
+21881     +       call symput('oldrole', ROLE);
+21882     +    run;
+21883     +    %if &oldrole ne &em_property_role %then %do;
+21884     +        data &em_data_exportset;
+21885     +           set &em_data_exportset;
+21886     +           if NODEPORT='TRAIN' then do;
+21887     +              ROLE="&em_property_role";
+21888     +              NEEDUPDATE='Y';
+21889     +              EXPORT='Y';
+21890     +           end;
+21891     +        run;
+21892     +        filename x "&EM_NODEDIR.&EM_DSEP._updatePath.st";
+21893     +        data _null_;
+21894     +           file x;
+21895     +           put ' ';
+21896     +        run;
+21897     +        filename x;
+21898     +    %end;
+21899     +    %else %do;
+21900     +        data &em_data_exportset;
+21901     +           set &em_data_exportset;
+21902     +           if NODEPORT='TRAIN' then do;
+21903     +              ROLE="&em_property_role";
+21904     +              NEEDUPDATE='Y';
+21905     +              EXPORT='Y';
+21906     +           end;
+21907     +        run;
+21908     +    %end;
+21909     +
+21910     +    %em_getname(key=EMCMETADEFAULT, type=DATA);
+21911     +    %if %sysfunc(exist(&em_user_emcmetadefault)) and ^%sysfunc(exist(&em_lib..&em_nodeid._CMETA_TRAIN)) %then %do;
+21912     +        data &em_lib..&em_nodeid._CMETA_TRAIN;
+21913     +           set &em_user_emcmetadefault;
+21914     +           drop DROP;
+21915     +           where DROP='N';
+21916     +        run;
+21917     +    %end;
+21918     +
+21919     +%mend update;
+21920     +
+21921     +
+21922     +
+21923     +
+NOTE: %INCLUDE (level 1) ending.
+NOTE: Fileref TEMP has been deassigned.
+
+NOTE: There were 1 observations read from the data set EMWS1.FIMPORT_EXPORTSET.
+      WHERE NODEPORT='TRAIN';
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 6 observations read from the data set EMWS1.FIMPORT_EXPORTSET.
+NOTE: The data set EMWS1.FIMPORT_EXPORTSET has 6 observations and 18 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+
+21924      *------------------------------------------------------------*;
+21925      * End UPDATE: FIMPORT;
+21926      *------------------------------------------------------------*;
+
+21927      %em_delMacro;
+
+21929      %let _HPDMGRIDHOST=;
+21930      %let _HPDMGRIDINSTALLLOC=;
+21931      %let _HPDMGRIDDATASERVER=;
+21932      %hpdm_gridSetOPtions;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+*------------------------------------------------------------* 
+* 
+* FIMPORT : End Update 
+* datetime : 16APR2021:11:55:18 
+* 
+*------------------------------------------------------------* 
+Traverser: WaitingNode "PART" 
+Traverser: WaitingNode "TREE2" 
+traverser_readyNode_note 
+*------------------------------------------------------------* 
+* 
+* Filter : Beginning Update 
+* datetime : 16APR2021:11:55:18 
+* 
+*------------------------------------------------------------* 
+21952      %let _HPDMGRIDHOST=;
+21953      %let _HPDMGRIDINSTALLLOC=;
+21954      %let _HPDMGRIDDATASERVER=;
+21955      %hpdm_gridSetOPtions;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+*------------------------------------------------------------* 
+* 
+* Filter : End Update 
+* datetime : 16APR2021:11:55:18 
+* 
+*------------------------------------------------------------* 
+Traverser: WaitingNode "TREE2" 
+traverser_readyNode_note 
+*------------------------------------------------------------* 
+* 
+* Part : Beginning Update 
+* datetime : 16APR2021:11:55:19 
+* 
+*------------------------------------------------------------* 
+21974      %let _HPDMGRIDHOST=;
+21975      %let _HPDMGRIDINSTALLLOC=;
+21976      %let _HPDMGRIDDATASERVER=;
+21977      %hpdm_gridSetOPtions;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+*------------------------------------------------------------* 
+* 
+* Part : End Update 
+* datetime : 16APR2021:11:55:24 
+* 
+*------------------------------------------------------------* 
+traverser_readyNode_note 
+*------------------------------------------------------------* 
+* 
+* Tree2 : Beginning Update 
+* datetime : 16APR2021:11:55:24 
+* 
+*------------------------------------------------------------* 
+PERFORMANCE  DETAILS
+22364      data EM_TARGETDECINFO;
+22365      length TARGET $32 DECDATA DECMETA $43;
+22366      TARGET="Risk";
+22367      DECDATA="EMWS1.Tree2_Risk_DD";
+22368      DECMETA="EMWS1.Tree2_Risk_DM";
+22369      output;
+22370      run;
+
+NOTE: The data set WORK.EM_TARGETDECINFO has 1 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22371      %let emexceptionString =;
+22372      %let EMEXCEPTIONSTRING=;
+22373      *------------------------------------------------------------*;
+22374      * UPDATE: Tree2;
+22375      *------------------------------------------------------------*;
+22376      %let EM_ACTION = UPDATE;
+22377      %let syscc = 0;
+22378      %macro main;
+22379      
+22380        %if %upcase(&EM_ACTION) = CREATE %then %do;
+22381          filename temp catalog 'sashelp.emmodl.tree_create.source';
+22382          %include temp;
+22383          filename temp;
+22384      
+22385          %em_tree_create;
+22386        %end;
+22387      
+22388         %else
+22389         %if %upcase(&EM_ACTION) = TRAIN %then %do;
+22390      
+22391             filename temp catalog 'sashelp.emmodl.tree_train.source';
+22392             %include temp;
+22393             filename temp;
+22394             %em_tree_train;
+22395         %end;
+22396      
+22397        %else
+22398        %if %upcase(&EM_ACTION) = SCORE %then %do;
+22399          filename temp catalog 'sashelp.emmodl.tree_score.source';
+22400          %include temp;
+22401          filename temp;
+22402      
+22403          %em_tree_score;
+22404      
+22405        %end;
+22406      
+22407        %else
+22408        %if %upcase(&EM_ACTION) = REPORT %then %do;
+22409      
+22410             filename temp catalog 'sashelp.emmodl.tree_report.source';
+22411             %include temp;
+22412             filename temp;
+22413      
+22414             %em_tree_report;
+22415         %end;
+22416      
+22417        %else
+22418        %if %upcase(&EM_ACTION) = OPENINT %then %do;
+22419      
+22420             filename temp catalog 'sashelp.emmodl.tree_actions.source';
+22421             %include temp;
+22422             filename temp;
+22423             %EM_TREE_OPENTREEVIEWER;
+22424      
+22425         %end;
+22426      
+22427        %else
+22428        %if %upcase(&EM_ACTION) = CLOSEINT %then %do;
+22429      
+22430             filename temp catalog 'sashelp.emmodl.tree_actions.source';
+22431             %include temp;
+22432             filename temp;
+22433             %EM_TREE_CLOSETREEVIEWER;
+22434      
+22435         %end;
+22436      
+22437      
+22438         %doendm:
+22439      %mend main;
+22440      
+22441      %main;
+22442      
+22443      *------------------------------------------------------------*;
+22444      * End UPDATE: Tree2;
+22445      *------------------------------------------------------------*;
+
+22446      %em_delMacro;
+
+22448      %let _HPDMGRIDHOST=;
+22449      %let _HPDMGRIDINSTALLLOC=;
+22450      %let _HPDMGRIDDATASERVER=;
+22451      %hpdm_gridSetOPtions;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+*------------------------------------------------------------* 
+* 
+* Tree2 : End Update 
+* datetime : 16APR2021:11:55:25 
+* 
+*------------------------------------------------------------* 
+Traverser: Run Completed 
+22452      proc printto;
+22453      run;
+

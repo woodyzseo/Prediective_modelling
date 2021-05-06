@@ -1,0 +1,257 @@
+ 
+                                                                                               
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+INPUT        INTERVAL           5   
+INPUT        NOMINAL            2   
+REJECTED     BINARY             4   
+REJECTED     INTERVAL          24   
+REJECTED     NOMINAL           16   
+TARGET       BINARY             1   
+ 
+                                                                                               
+ 
+ 
+Model Events
+
+                                  Number
+                   Measurement      of
+Target    Event       Level       Levels      Order       Label
+
+ Risk       1        BINARY          2      Descending         
+ 
+                                                                                               
+ 
+ 
+Predicted and decision variables
+
+Type         Variable    Label
+
+TARGET       Risk                         
+PREDICTED    P_Risk1     Predicted: Risk=1
+RESIDUAL     R_Risk1     Residual: Risk=1 
+PREDICTED    P_Risk0     Predicted: Risk=0
+RESIDUAL     R_Risk0     Residual: Risk=0 
+FROM         F_Risk      From: Risk       
+INTO         I_Risk      Into: Risk       
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+                       Optimization Start
+                      Parameter Estimates
+                                                       Gradient
+                                                      Objective
+  N Parameter                          Estimate        Function
+
+  1 LOG_REP_engine_size_H11           -0.016245               0
+  2 REP_city_mpg_H11                  -0.037792               0
+  3 REP_highway_mpg_H11               -0.092032               0
+  4 REP_wheel_base_H11                -0.084007               0
+  5 REP_width_H11                      0.027793               0
+  6 LOG_REP_engine_size_H12            0.188742               0
+  7 REP_city_mpg_H12                  -0.574955               0
+  8 REP_highway_mpg_H12                0.299273               0
+  9 REP_wheel_base_H12                 0.216273               0
+ 10 REP_width_H12                      0.066412               0
+ 11 LOG_REP_engine_size_H13           -0.545632               0
+ 12 REP_city_mpg_H13                   0.169658               0
+ 13 REP_highway_mpg_H13               -0.243480               0
+ 14 REP_wheel_base_H13                 0.642215               0
+ 15 REP_width_H13                      0.011874               0
+ 16 LOG_REP_engine_size_H14            0.364349               0
+ 17 REP_city_mpg_H14                   0.228610               0
+ 18 REP_highway_mpg_H14                0.114905               0
+ 19 REP_wheel_base_H14                 0.322238               0
+ 20 REP_width_H14                      0.275196               0
+ 21 IMP_num_of_doors2_H11              0.068551               0
+ 22 REP_num_of_cylinders__4_H11        0.235045               0
+ 23 IMP_num_of_doors2_H12             -0.389602               0
+ 24 REP_num_of_cylinders__4_H12        0.185413               0
+ 25 IMP_num_of_doors2_H13              0.556698               0
+ 26 REP_num_of_cylinders__4_H13        0.696359               0
+ 27 IMP_num_of_doors2_H14             -0.427408               0
+ 28 REP_num_of_cylinders__4_H14       -0.588263               0
+ 29 BIAS_H11                          -1.377611               0
+ 30 BIAS_H12                          -1.112926               0
+ 31 BIAS_H13                           0.366363               0
+ 32 BIAS_H14                          -1.115674               0
+ 33 H11_Risk1                                 0       -0.011284
+ 34 H12_Risk1                                 0        0.095326
+ 35 H13_Risk1                                 0       -0.021223
+ 36 H14_Risk1                                 0        0.097476
+ 37 BIAS_Risk1                         0.160343    5.329071E-17
+
+Value of Objective Function = 0.6899437585
+
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+Levenberg-Marquardt Optimization
+
+
+Minimum Iterations                                0
+Maximum Iterations                               50
+Maximum Function Calls                   2147483647
+Maximum CPU Time                                300
+ABSGCONV Gradient Criterion                 0.00001
+GCONV Gradient Criterion                       1E-8
+GCONV2 Gradient Criterion                         0
+ABSFCONV Function Criterion                       0
+FCONV Function Criterion                     0.0001
+FCONV2 Function Criterion                         0
+FSIZE Parameter                                   0
+ABSXCONV Parameter Change Criterion               0
+XCONV Parameter Change Criterion                  0
+XSIZE Parameter                                   0
+ABSCONV Function Criterion             0.0013927149
+Trust Region Initial Radius Factor                1
+Singularity Tolerance (SINGULAR)               1E-8
+
+Levenberg-Marquardt Optimization
+
+Scaling Update of More (1978)
+
+Parameter Estimates              37
+
+                                      Optimization Start
+
+Active Constraints                           0  Objective Function                0.6899437585
+Max Abs Gradient Element          0.0974756299  Radius                                       1
+
+
+                                                                                         Ratio
+                                                                                       Between
+                                                                                        Actual
+                                                       Objective   Max Abs                 and
+                 Function       Active      Objective   Function  Gradient           Predicted
+Iter   Restarts     Calls  Constraints       Function     Change   Element   Lambda     Change
+
+   1*         0         2            0        0.53008     0.1599    0.1398   0.0355      0.867
+   2          0         3            0        0.36339     0.1667    0.0839   0.0173      0.866
+   3          0         5            0        0.32417     0.0392    0.0497   0.0519      0.841
+   4          0         6            0        0.30461     0.0196    0.0718   0.0127      0.400
+   5          0         8            0        0.28413     0.0205    0.0226   0.0466      0.486
+   6          0         9            0        0.28082    0.00331    0.0377   0.0345      0.150
+   7          0        10            0        0.27632    0.00451    0.0377   0.0433      0.157
+   8          0        11            0        0.26660    0.00972    0.0264   0.0340      0.366
+   9          0        12            0        0.26353    0.00308    0.0318   0.0330      0.143
+  10          0        13            0        0.25586    0.00767    0.0232   0.0300      0.326
+  11          0        14            0        0.25274    0.00311    0.0294   0.0274      0.162
+  12          0        15            0        0.24798    0.00476    0.0273   0.0288      0.212
+  13          0        17            0        0.24059    0.00739    0.0143   0.0877      0.670
+  14          0        18            0        0.23634    0.00425   0.00826   0.0437      0.859
+  15          0        19            0        0.22937    0.00697    0.0169   0.0206      0.882
+  16          0        20            0        0.22737    0.00200    0.0333   0.0108      0.105
+  17          0        22            0        0.21345     0.0139    0.0247   0.0399      0.802
+  18          0        23            0        0.20009     0.0134    0.0237   0.0105      0.820
+  19          0        24            0        0.19499    0.00510    0.0544  0.00470      0.188
+  20          0        26            0        0.19282    0.00217    0.0966   0.0185     0.0608
+  21          0        27            0        0.17235     0.0205    0.0423   0.0578      0.587
+  22          0        28            0        0.16676    0.00558    0.0383   0.0412      0.381
+  23          0        29            0        0.16251    0.00425    0.0256   0.0389      0.342
+  24          0        30            0        0.15869    0.00383    0.0269   0.0390      0.322
+  25          0        31            0        0.15594    0.00275    0.0279   0.0404      0.231
+  26          0        32            0        0.15190    0.00404    0.0262   0.0383      0.334
+  27          0        33            0        0.14936    0.00254    0.0283   0.0407      0.215
+  28          0        34            0        0.14455    0.00481    0.0254   0.0404      0.392
+  29          0        35            0        0.14064    0.00390    0.0284   0.0443      0.330
+  30          0        36            0        0.13406    0.00658    0.0244   0.0461      0.522
+  31          0        37            0        0.12818    0.00589    0.0284   0.0491      0.494
+  32          0        38            0        0.12097    0.00721    0.0232   0.0511      0.593
+  33          0        39            0        0.11556    0.00541    0.0273   0.0457      0.512
+  34          0        40            0        0.10527     0.0103    0.0262   0.0102      0.488
+  35          0        42            0        0.10318    0.00209    0.0424   0.0343      0.118
+  36          0        43            0        0.09545    0.00773    0.0135   0.0264      0.501
+  37          0        44            0        0.09333    0.00211    0.0237   0.0224      0.221
+  38          0        45            0        0.08884    0.00449    0.0156   0.0239      0.406
+  39          0        46            0        0.08683    0.00201    0.0200   0.0204      0.224
+  40          0        47            0        0.08313    0.00370    0.0131   0.0222      0.361
+  41          0        48            0        0.08133    0.00180    0.0199   0.0190      0.208
+  42          0        49            0        0.07824    0.00309    0.0155   0.0204      0.312
+  43          0        50            0        0.07695    0.00129    0.0237   0.0180      0.148
+  44          0        51            0        0.07370    0.00325    0.0148   0.0185      0.318
+  45          0        52            0        0.07306   0.000638    0.0271   0.0173     0.0747
+  46          0        53            0        0.06895    0.00411   0.00867   0.0650      0.538
+  47          0        54            0        0.06751    0.00144   0.00933   0.0271      0.577
+  48          0        55            0        0.06612    0.00139   0.00837   0.0271      0.575
+  49          0        56            0        0.06509    0.00104    0.0111   0.0269      0.445
+  50          0        57            0        0.06366    0.00143   0.00890   0.0272      0.532
+
+                                     Optimization Results
+
+Iterations                                  50  Function Calls                              59
+Jacobian Calls                              52  Active Constraints                           0
+Objective Function                0.0636597647  Max Abs Gradient Element          0.0089008035
+Lambda                             0.027161292  Actual Over Pred Change           0.5324142987
+Radius                            0.7338911121                                                
+
+LEVMAR needs more than 50 iterations or 2147483647 function calls.                             
+
+WARNING: LEVMAR Optimization cannot be completed.
+
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+                      Optimization Results
+                      Parameter Estimates
+                                                       Gradient
+                                                      Objective
+  N Parameter                          Estimate        Function
+
+  1 LOG_REP_engine_size_H11            3.717181       -0.008481
+  2 REP_city_mpg_H11                  -0.328468        0.006428
+  3 REP_highway_mpg_H11                1.274588        0.007031
+  4 REP_wheel_base_H11                -4.428694       -0.002725
+  5 REP_width_H11                     -3.578845       -0.007443
+  6 LOG_REP_engine_size_H12            0.023128        0.003813
+  7 REP_city_mpg_H12                   3.415119       -0.004518
+  8 REP_highway_mpg_H12               -2.988452       -0.004166
+  9 REP_wheel_base_H12                -0.369347        0.004270
+ 10 REP_width_H12                      0.913462        0.006547
+ 11 LOG_REP_engine_size_H13            1.134977       -0.000282
+ 12 REP_city_mpg_H13                   2.191261       -0.001035
+ 13 REP_highway_mpg_H13               -3.087204    -0.000035428
+ 14 REP_wheel_base_H13                -0.019109       -0.000417
+ 15 REP_width_H13                     -5.309905        0.001913
+ 16 LOG_REP_engine_size_H14            3.765001        0.002106
+ 17 REP_city_mpg_H14                   1.012505       -0.004172
+ 18 REP_highway_mpg_H14                1.581666       -0.005024
+ 19 REP_wheel_base_H14                 3.610687        0.000620
+ 20 REP_width_H14                     -2.120924        0.004828
+ 21 IMP_num_of_doors2_H11              0.277050       -0.002690
+ 22 REP_num_of_cylinders__4_H11        0.641674        0.008527
+ 23 IMP_num_of_doors2_H12             -0.529066       -0.004220
+ 24 REP_num_of_cylinders__4_H12        1.432433       -0.001144
+ 25 IMP_num_of_doors2_H13              0.800326       -0.001381
+ 26 REP_num_of_cylinders__4_H13        0.469012        0.000571
+ 27 IMP_num_of_doors2_H14             -2.682473       -0.001249
+ 28 REP_num_of_cylinders__4_H14       -1.403129       -0.003225
+ 29 BIAS_H11                          -4.056601        0.008901
+ 30 BIAS_H12                          -1.390414       -0.001142
+ 31 BIAS_H13                          -0.172402        0.001243
+ 32 BIAS_H14                          -1.818853        0.003128
+ 33 H11_Risk1                          6.549260       -0.001244
+ 34 H12_Risk1                         -6.936424        0.002323
+ 35 H13_Risk1                         -4.882969        0.002566
+ 36 H14_Risk1                         -5.897041        0.002481
+ 37 BIAS_Risk1                        -0.566749       -0.001387
+
+Value of Objective Function = 0.0636597647
+

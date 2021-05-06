@@ -1,0 +1,666 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 05, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:10:03 o'clock" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Score Log
+Date:                April 05, 2021
+Time:                13:10:03 o'clock
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O3OAXO76 "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O3OAXO76 new;
+MPRINT(EM_DIAGRAM):   run;
+51236      proc sort data=EMWS1.Trans_RESULT out=WORK.TransRESULT NOTHREADS;
+MPRINT(EM_DIAGRAM):    proc sort data=EMWS1.Trans_RESULT out=WORK.TransRESULT NOTHREADS;
+51237      by INPUTNAME;
+MPRINT(EM_DIAGRAM):   by INPUTNAME;
+51238      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set EMWS1.TRANS_RESULT.
+NOTE: The data set WORK.TRANSRESULT has 3 observations and 11 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+51239      proc sort data=EMWS1.Trans_VariableSet(KEEP= NAME FAMILY REPORT rename=(NAME=INPUTNAME)) out=WORK.TransVARSET NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Trans_VariableSet(KEEP= NAME FAMILY REPORT rename=(NAME=INPUTNAME)) out=WORK.TransVARSET NOTHREADS;
+51240      by INPUTNAME;
+MPRINT(EM_DIAGRAM):   by INPUTNAME;
+51241      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 45 observations read from the data set EMWS1.TRANS_VARIABLESET.
+NOTE: The data set WORK.TRANSVARSET has 45 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+51242      data WORK.TransRESULT;
+MPRINT(EM_DIAGRAM):   data WORK.TransRESULT;
+51243      merge WORK.TransRESULT WORK.TransVARSET;
+MPRINT(EM_DIAGRAM):   merge WORK.TransRESULT WORK.TransVARSET;
+51244      by INPUTNAME;
+MPRINT(EM_DIAGRAM):   by INPUTNAME;
+51245      if NAME ne '' then output;
+MPRINT(EM_DIAGRAM):   if NAME ne '' then output;
+51246      run;
+MPRINT(EM_DIAGRAM):   run;
+
+WARNING: Multiple lengths were specified for the BY variable INPUTNAME by input data sets. This might cause unexpected results.
+NOTE: There were 3 observations read from the data set WORK.TRANSRESULT.
+NOTE: There were 45 observations read from the data set WORK.TRANSVARSET.
+NOTE: The data set WORK.TRANSRESULT has 3 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+51247      filename _code "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\TRAINDELTACODE.sas";
+MPRINT(EM_DIAGRAM):   filename _code "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\TRAINDELTACODE.sas";
+51248      data _null_;
+MPRINT(EM_DIAGRAM):   data _null_;
+51249      set WORK.TransRESULT;
+MPRINT(EM_DIAGRAM):   set WORK.TransRESULT;
+51250      length String $200;
+MPRINT(EM_DIAGRAM):   length String $200;
+51251      file _code;
+MPRINT(EM_DIAGRAM):   file _code;
+51252      String = 'if NAME="'!!strip(name)!!'" then do;';
+MPRINT(EM_DIAGRAM):   String = 'if NAME="'!!strip(name)!!'" then do;';
+51253      put / String;
+MPRINT(EM_DIAGRAM):   put / String;
+51254      if family ne '' then do;
+MPRINT(EM_DIAGRAM):   if family ne '' then do;
+51255      String = '   FAMILY ="'!!strip(family)!!'";';
+MPRINT(EM_DIAGRAM):   String = '   FAMILY ="'!!strip(family)!!'";';
+51256      put String;
+MPRINT(EM_DIAGRAM):   put String;
+51257      end;
+MPRINT(EM_DIAGRAM):   end;
+51258      select(formula);
+MPRINT(EM_DIAGRAM):   select(formula);
+51259      when('Interaction') put '   FAMILY  ="INTERACTION";';
+MPRINT(EM_DIAGRAM):   when('Interaction') put '   FAMILY  ="INTERACTION";';
+51260      when('') put '   COMMENT = "' method 'transformation of ' INPUTVAR '";';
+MPRINT(EM_DIAGRAM):   when('') put '   COMMENT = "' method 'transformation of ' INPUTVAR '";';
+51261      otherwise put '   COMMENT = "' formula '";';
+MPRINT(EM_DIAGRAM):   otherwise put '   COMMENT = "' formula '";';
+51262      end;
+MPRINT(EM_DIAGRAM):   end;
+51263      String = '   ROLE ="'!!strip(role)!!'";';
+MPRINT(EM_DIAGRAM):   String = '   ROLE ="'!!strip(role)!!'";';
+51264      put String;
+MPRINT(EM_DIAGRAM):   put String;
+51265      if REPORT="" then REPORT = "N";
+MPRINT(EM_DIAGRAM):   if REPORT="" then REPORT = "N";
+51266      String = '   REPORT ="'!!strip(report)!!'";';
+MPRINT(EM_DIAGRAM):   String = '   REPORT ="'!!strip(report)!!'";';
+51267      put String;
+MPRINT(EM_DIAGRAM):   put String;
+51268      String = '   LEVEL  ="'!!strip(level)!!'";';
+MPRINT(EM_DIAGRAM):   String = '   LEVEL  ="'!!strip(level)!!'";';
+51269      put String;
+MPRINT(EM_DIAGRAM):   put String;
+51270      put 'end;';
+MPRINT(EM_DIAGRAM):   put 'end;';
+51271      if formula ne 'Interaction' and INPUTNAME ne '' then do;
+MPRINT(EM_DIAGRAM):   if formula ne 'Interaction' and INPUTNAME ne '' then do;
+51272      String = 'if NAME="'!!strip(INPUTNAME)!!'" then delete;';
+MPRINT(EM_DIAGRAM):   String = 'if NAME="'!!strip(INPUTNAME)!!'" then delete;';
+51273      put String;
+MPRINT(EM_DIAGRAM):   put String;
+51274      end;
+MPRINT(EM_DIAGRAM):   end;
+51275      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Variable method is uninitialized.
+NOTE: Variable INPUTVAR is uninitialized.
+NOTE: The file _CODE is:
+      Filename=H:\746\Decision Tree test\Workspaces\EMWS1\Trans\TRAINDELTACODE.sas,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=April 05, 2021 13:10:03 o'cloc,
+      Create Time=April 01, 2021 16:59:58 o'cloc
+
+NOTE: 24 records were written to the file _CODE.
+      The minimum record length was 0.
+      The maximum record length was 48.
+NOTE: There were 3 observations read from the data set WORK.TRANSRESULT.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+51276      filename _code;
+MPRINT(EM_DIAGRAM):   filename _code;
+NOTE: Fileref _CODE has been deassigned.
+51277      filename emflow "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):    filename emflow "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Trans: Scoring DATA data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51278      *------------------------------------------------------------*;
+51279      * Trans: Scoring DATA data;
+51280      *------------------------------------------------------------*;
+51281      data EMWS1.Trans_TRAIN
+51282      / view=EMWS1.Trans_TRAIN
+51283      ;
+MPRINT(EM_DIAGRAM):   data EMWS1.Trans_TRAIN / view=EMWS1.Trans_TRAIN ;
+51284      set EMWS1.Repl_TRAIN
+51285      ;
+MPRINT(EM_DIAGRAM):   set EMWS1.Repl_TRAIN ;
+51286      %inc emflow;
+NOTE: %INCLUDE (level 1) file EMFLOW is file H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas.
+51287     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51288     +* Computed Code;
+MPRINT(EM_DIAGRAM):   * Computed Code;
+51289     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51290     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51291     +* TRANSFORM: REP_IMP_price , log(REP_IMP_price + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_IMP_price , log(REP_IMP_price + 1);
+51292     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51293     +label LOG_REP_IMP_price = 'Transformed: Replacement: Imputed price';
+MPRINT(EM_DIAGRAM):   label LOG_REP_IMP_price = 'Transformed: Replacement: Imputed price';
+51294     +if REP_IMP_price eq . then LOG_REP_IMP_price = .;
+MPRINT(EM_DIAGRAM):   if REP_IMP_price eq . then LOG_REP_IMP_price = .;
+51295     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51296     +if REP_IMP_price + 1 > 0 then LOG_REP_IMP_price = log(REP_IMP_price + 1);
+MPRINT(EM_DIAGRAM):   if REP_IMP_price + 1 > 0 then LOG_REP_IMP_price = log(REP_IMP_price + 1);
+51297     +else LOG_REP_IMP_price = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_IMP_price = .;
+51298     +end;
+MPRINT(EM_DIAGRAM):   end;
+51299     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51300     +* TRANSFORM: REP_compression_ratio , log(REP_compression_ratio + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_compression_ratio , log(REP_compression_ratio + 1);
+51301     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51302     +label LOG_REP_compression_ratio = 'Transformed: Replacement: compression-ratio';
+MPRINT(EM_DIAGRAM):   label LOG_REP_compression_ratio = 'Transformed: Replacement: compression-ratio';
+51303     +if REP_compression_ratio eq . then LOG_REP_compression_ratio = .;
+MPRINT(EM_DIAGRAM):   if REP_compression_ratio eq . then LOG_REP_compression_ratio = .;
+51304     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51305     +if REP_compression_ratio + 1 > 0 then LOG_REP_compression_ratio = log(REP_compression_ratio + 1);
+MPRINT(EM_DIAGRAM):   if REP_compression_ratio + 1 > 0 then LOG_REP_compression_ratio = log(REP_compression_ratio + 1);
+51306     +else LOG_REP_compression_ratio = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_compression_ratio = .;
+51307     +end;
+MPRINT(EM_DIAGRAM):   end;
+51308     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51309     +* TRANSFORM: REP_engine_size , log(REP_engine_size + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_engine_size , log(REP_engine_size + 1);
+51310     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51311     +label LOG_REP_engine_size = 'Transformed: Replacement: engine-size';
+MPRINT(EM_DIAGRAM):   label LOG_REP_engine_size = 'Transformed: Replacement: engine-size';
+51312     +if REP_engine_size eq . then LOG_REP_engine_size = .;
+MPRINT(EM_DIAGRAM):   if REP_engine_size eq . then LOG_REP_engine_size = .;
+51313     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51314     +if REP_engine_size + 1 > 0 then LOG_REP_engine_size = log(REP_engine_size + 1);
+MPRINT(EM_DIAGRAM):   if REP_engine_size + 1 > 0 then LOG_REP_engine_size = log(REP_engine_size + 1);
+51315     +else LOG_REP_engine_size = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_engine_size = .;
+51316     +end;
+MPRINT(EM_DIAGRAM):   end;
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(EM_DIAGRAM):   run;
+51317      run;
+
+NOTE: DATA STEP view saved on file EMWS1.TRANS_TRAIN.
+NOTE: A stored DATA STEP view cannot run under a different operating system.
+NOTE: View EMWS1.REPL_TRAIN.VIEW used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.07 seconds
+      
+NOTE: DATA statement used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.09 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+51318      quit;
+51319      filename emflow;
+MPRINT(EM_DIAGRAM):   filename emflow;
+NOTE: Fileref EMFLOW has been deassigned.
+51320      filename emflow "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):    filename emflow "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Trans: Scoring VALIDATE data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51321      *------------------------------------------------------------*;
+51322      * Trans: Scoring VALIDATE data;
+51323      *------------------------------------------------------------*;
+51324      data EMWS1.Trans_VALIDATE
+51325      / view=EMWS1.Trans_VALIDATE
+51326      ;
+MPRINT(EM_DIAGRAM):   data EMWS1.Trans_VALIDATE / view=EMWS1.Trans_VALIDATE ;
+51327      set EMWS1.Repl_VALIDATE
+51328      ;
+MPRINT(EM_DIAGRAM):   set EMWS1.Repl_VALIDATE ;
+51329      %inc emflow;
+NOTE: %INCLUDE (level 1) file EMFLOW is file H:\746\Decision Tree test\Workspaces\EMWS1\Trans\EMFLOWSCORE.sas.
+51330     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51331     +* Computed Code;
+MPRINT(EM_DIAGRAM):   * Computed Code;
+51332     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51333     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51334     +* TRANSFORM: REP_IMP_price , log(REP_IMP_price + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_IMP_price , log(REP_IMP_price + 1);
+51335     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51336     +label LOG_REP_IMP_price = 'Transformed: Replacement: Imputed price';
+MPRINT(EM_DIAGRAM):   label LOG_REP_IMP_price = 'Transformed: Replacement: Imputed price';
+51337     +if REP_IMP_price eq . then LOG_REP_IMP_price = .;
+MPRINT(EM_DIAGRAM):   if REP_IMP_price eq . then LOG_REP_IMP_price = .;
+51338     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51339     +if REP_IMP_price + 1 > 0 then LOG_REP_IMP_price = log(REP_IMP_price + 1);
+MPRINT(EM_DIAGRAM):   if REP_IMP_price + 1 > 0 then LOG_REP_IMP_price = log(REP_IMP_price + 1);
+51340     +else LOG_REP_IMP_price = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_IMP_price = .;
+51341     +end;
+MPRINT(EM_DIAGRAM):   end;
+51342     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51343     +* TRANSFORM: REP_compression_ratio , log(REP_compression_ratio + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_compression_ratio , log(REP_compression_ratio + 1);
+51344     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51345     +label LOG_REP_compression_ratio = 'Transformed: Replacement: compression-ratio';
+MPRINT(EM_DIAGRAM):   label LOG_REP_compression_ratio = 'Transformed: Replacement: compression-ratio';
+51346     +if REP_compression_ratio eq . then LOG_REP_compression_ratio = .;
+MPRINT(EM_DIAGRAM):   if REP_compression_ratio eq . then LOG_REP_compression_ratio = .;
+51347     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51348     +if REP_compression_ratio + 1 > 0 then LOG_REP_compression_ratio = log(REP_compression_ratio + 1);
+MPRINT(EM_DIAGRAM):   if REP_compression_ratio + 1 > 0 then LOG_REP_compression_ratio = log(REP_compression_ratio + 1);
+51349     +else LOG_REP_compression_ratio = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_compression_ratio = .;
+51350     +end;
+MPRINT(EM_DIAGRAM):   end;
+51351     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51352     +* TRANSFORM: REP_engine_size , log(REP_engine_size + 1);
+MPRINT(EM_DIAGRAM):   * TRANSFORM: REP_engine_size , log(REP_engine_size + 1);
+51353     +*------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+51354     +label LOG_REP_engine_size = 'Transformed: Replacement: engine-size';
+MPRINT(EM_DIAGRAM):   label LOG_REP_engine_size = 'Transformed: Replacement: engine-size';
+51355     +if REP_engine_size eq . then LOG_REP_engine_size = .;
+MPRINT(EM_DIAGRAM):   if REP_engine_size eq . then LOG_REP_engine_size = .;
+51356     +else do;
+MPRINT(EM_DIAGRAM):   else do;
+51357     +if REP_engine_size + 1 > 0 then LOG_REP_engine_size = log(REP_engine_size + 1);
+MPRINT(EM_DIAGRAM):   if REP_engine_size + 1 > 0 then LOG_REP_engine_size = log(REP_engine_size + 1);
+51358     +else LOG_REP_engine_size = .;
+MPRINT(EM_DIAGRAM):   else LOG_REP_engine_size = .;
+51359     +end;
+MPRINT(EM_DIAGRAM):   end;
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(EM_DIAGRAM):   run;
+51360      run;
+
+NOTE: DATA STEP view saved on file EMWS1.TRANS_VALIDATE.
+NOTE: A stored DATA STEP view cannot run under a different operating system.
+NOTE: View EMWS1.REPL_VALIDATE.VIEW used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.12 seconds
+      
+NOTE: DATA statement used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.14 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+51361      quit;
+51362      filename emflow;
+MPRINT(EM_DIAGRAM):   filename emflow;
+NOTE: Fileref EMFLOW has been deassigned.
+51363      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+51364      * Trans: Computing metadata for TRAIN data;
+MPRINT(EM_DIAGRAM):   * Trans: Computing metadata for TRAIN data;
+51365      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+
+NOTE: View EMWS1.TRANS_TRAIN.VIEW used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.10 seconds
+      
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * &nodeid: Computing Metadata for TRAIN data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   filename _delta "H:\746\Decision Tree test\Workspaces\EMWS1\Trans\CDELTA_TRAIN.sas";
+MPRINT(EMADVISECOLUMNS):   proc display c=sashelp.emmeta.advisecolumns.scl;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    options validvarname=any;
+MPRINT(EMADVISECOLUMNS):   proc contents data=EMWS1.Trans_TRAIN out=_tempAdvisor noprint;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):   options validvarname=V7;
+MPRINT(EMADVISECOLUMNS):    data _null_;
+MPRINT(EMADVISECOLUMNS):   dsid = open('EMWS1.Trans_TRAIN');
+MPRINT(EMADVISECOLUMNS):   call symput('_dsidTable', strip(put(dsid, best.)));
+MPRINT(EMADVISECOLUMNS):   if dsid then do;
+MPRINT(EMADVISECOLUMNS):   call symput('_engineTable', attrc(dsid, 'ENGINE'));
+MPRINT(EMADVISECOLUMNS):   dsid = close(dsid);
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    proc contents data=EMWS1.Trans_TRAIN out=WORK.M3MEH08B noprint;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M3MEH08B;
+MPRINT(EMADVISECOLUMNS):   length NAME $ 64 TYPE $ 1 LABEL $ 200 FORMAT $ 36 INFORMAT $36 INDEX $ 1 INDEXTYPE $ 9;
+MPRINT(EMADVISECOLUMNS):   label NAME =;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3MEH08B(keep=name type length label format formatl formatd informat informl informd idxusage rename=(type=itype));
+MPRINT(EMADVISECOLUMNS):   if itype = 1 then type = 'N';
+MPRINT(EMADVISECOLUMNS):   else type = 'C';
+MPRINT(EMADVISECOLUMNS):   if formatl > 0 then do;
+MPRINT(EMADVISECOLUMNS):   if format ne ' ' then format = strip(format)!!strip(put(formatl, best12.))!!'.'!!strip(put(formatd, best12.));
+MPRINT(EMADVISECOLUMNS):   else format = strip(put(formatl, best12.))!!'.'!!strip(put(formatd, best12.));
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if format ne '' then format = strip(format)!!'.';
+MPRINT(EMADVISECOLUMNS):   if informl > 0 then do;
+MPRINT(EMADVISECOLUMNS):   if informat ne ' ' then informat = strip(informat)!!strip(put(informl, best12.))!!'.'!!strip(put(informd, best12.));
+MPRINT(EMADVISECOLUMNS):   else informat = strip(put(informl, best12.))!!'.'!!strip(put(informd, best12.));
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if informat ne '' then informat = strip(informat)!!'.';
+MPRINT(EMADVISECOLUMNS):   if idxusage = 'NONE' then index ="N";
+MPRINT(EMADVISECOLUMNS):   else index = "Y";
+MPRINT(EMADVISECOLUMNS):   indextype = idxusage;
+MPRINT(EMADVISECOLUMNS):   drop idxusage itype formatl formatd informl informd;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M3MEH08B;
+MPRINT(EMADVISECOLUMNS):   length UNAME $64;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3MEH08B;
+MPRINT(EMADVISECOLUMNS):   UNAME = upcase(NAME);
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    proc sort data=WORK.M3EF0TRC NOTHREADS;
+MPRINT(EMADVISECOLUMNS):   by UNAME;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   drop UNAME;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M2XII2KR(keep=NAME ATTR);
+MPRINT(EMADVISECOLUMNS):   length ATTR $ 20;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   if level ne "INTERVAL" then do;
+MPRINT(EMADVISECOLUMNS):   if order = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'ORDER';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if format ne ' ' and formattype = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'FORMATTYPE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'ROLE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if level = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'LEVEL';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if type = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'TYPE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if index = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'INDEX';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if report = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'REPORT';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):   proc sort NOTHREADS;
+MPRINT(EMADVISECOLUMNS):   by attr;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   length NAME $64 ROLE $ 32 LEVEL $ 10 ORDER $ 8 CREATOR $32 FORMATTYPE $ 10 FAMILY $ 10 LOWERLIMIT 8 UPPERLIMIT 8 REPORT $1 DISTRIBUTION $ 20 COMMENT $64;
+MPRINT(EMADVISECOLUMNS):   length levelAssigned 8 roleAssigned 8 PRICE 8;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   if formattype = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if format ne ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if type = 'N' then do;
+MPRINT(EMADVISECOLUMNS):   pos = indexc(format,'.1234567890');
+MPRINT(EMADVISECOLUMNS):   if pos > 1 then tempfmt = substr(format,1, pos-1);
+MPRINT(EMADVISECOLUMNS):   else tempfmt = ' ';
+MPRINT(EMADVISECOLUMNS):   flen = length(tempfmt);
+MPRINT(EMADVISECOLUMNS):   select;
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("DATE" "DAY" "DDMMYY" "DOWNAME" "JULDAY" "JULIAN" "MMDDYY" "MMDDYYD" "MMDDYYC" "MMDDYYN" "MMDDYYP" "MMDDYYS" "MONNAME" "MONTH" "MONYY" "NENGO" "QTR" "QTRR" "WEEKDATE" "WEEKDATX" "WEEKDAY" "WORDDATE" "WORDDATX" 
+"YEAR" "YYMMDD" "YYMON" "YYMMDDC" "YYMMDDD" "YYMMDDN" "YYMMDDP" "YYMMDDS" "EURDFDE" "NJDATE" "NLDATE" "EURDFDD" "EURDFDWN" "EURDFMN" "EURDFMY" "EURDFWK" "EURDFWKX" "EURDFWDX" "EURDFDN" "EURDFDE" )) formattype = 'DATE';
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("DATETIME" "EURDFDT" "TOD" )) formattype = "DATETIME";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("HHMM" "HOUR" "MMSS" "TIME" "TIMEAMPM" )) formattype = "TIME";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("COMMA" "COMMAX" "DOLLAR" "DOLLARX" "E" "FRACT" "NEGPAREN" "PERCENT")) formattype="QUANTITY";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("BINARY" "HEX" "IB" "OCTAL" "PD" "PIB" "PK" "RB" "SSN" "Z" "ZD")) formattype = "CODING";
+MPRINT(EMADVISECOLUMNS):   otherwise do;
+MPRINT(EMADVISECOLUMNS):   formattype = "USER";
+MPRINT(EMADVISECOLUMNS):   if substr(tempfmt, 1, 6)='NLDATE' then formattype = "DATE";
+MPRINT(EMADVISECOLUMNS):   else if substr(tempfmt, 1, 6)='NLDATM' then formattype = "DATETIME";
+MPRINT(EMADVISECOLUMNS):   else if substr(tempfmt, 1, 4)='NLTIM' then formattype = "TIME";
+MPRINT(EMADVISECOLUMNS):   else if flen >= 4 then do;
+MPRINT(EMADVISECOLUMNS):   str = substr(tempfmt,1,4);
+MPRINT(EMADVISECOLUMNS):   if str in ("MMYY" "YYMM" "YYQR") then formattype ="DATE";
+MPRINT(EMADVISECOLUMNS):   else if str = "S370" then formattype = "CODING";
+MPRINT(EMADVISECOLUMNS):   else if str = "BEST" then formattype = "NUM";
+MPRINT(EMADVISECOLUMNS):   drop str;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if flen >=3 and substr(tempfmt,1,3) = "YYQ" then formatType = "DATE";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   drop flen tempfmt pos;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   formatType = "CATEGORY";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if formatType = "NUM" then do;
+MPRINT(EMADVISECOLUMNS):   if index = "Y" then formatType = "DISCRETE";
+MPRINT(EMADVISECOLUMNS):   else formatType = "QUANTITY";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if level = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if formatType in ("CATEGORY", "CODING", "ID") or type = "C" then level = "NOMINAL";
+MPRINT(EMADVISECOLUMNS):   else level = "INTERVAL";
+MPRINT(EMADVISECOLUMNS):   levelAssigned = 1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else level = upcase(level);
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   length name_prefix $8 _uname $64;
+MPRINT(EMADVISECOLUMNS):   drop name_prefix _uname _freqflag;
+MPRINT(EMADVISECOLUMNS):   retain _freqflag;
+MPRINT(EMADVISECOLUMNS):   if LENGTH> 80 then ROLE = 'TEXT';
+MPRINT(EMADVISECOLUMNS):   _uname = upcase(NAME);
+MPRINT(EMADVISECOLUMNS):   select(_uname);
+MPRINT(EMADVISECOLUMNS):   when('_PARTIND_') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'ID';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('_WARN_') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_SEGMENT') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('_NODE_') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('EM_CLASSTARGET') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_VALUETARGET') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_PREDICTION') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_PROBABILITY') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_EVENTPROBABILITY') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_CLASSIFICATION') ROLE = 'CLASSIFICATION';
+MPRINT(EMADVISECOLUMNS):   when('EM_DECISION') ROLE = 'DECISION';
+MPRINT(EMADVISECOLUMNS):   when('EM_PROFIT') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_LOSS') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_ROI') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('URI') ROLE = 'URL';
+MPRINT(EMADVISECOLUMNS):   when('FILTERED') ROLE = 'TEXTLOC';
+MPRINT(EMADVISECOLUMNS):   otherwise do;
+MPRINT(EMADVISECOLUMNS):   if upcase(NAME) =: 'ZIP' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'REJECTED';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   COMMENT = 'Rejected by: Exceed the maximum class level of %s';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if upcase(NAME) in('FREQ', 'FREQUENCY') then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'FREQ';
+MPRINT(EMADVISECOLUMNS):   if TYPE = 'C' then ROLE = 'INPUT';
+MPRINT(EMADVISECOLUMNS):   else if _freqflag =1 then ROLE='REJECTED';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   name_prefix = scan(_uname, 1, '_');
+MPRINT(EMADVISECOLUMNS):   if scan(_uname, 2, '_') = '' then name_prefix='';
+MPRINT(EMADVISECOLUMNS):   if name_prefix in('F', 'I', 'U') then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'CLASSIFICATION';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('P', 'V') then ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('R', 'RS', 'RT', 'RD', 'RDS', 'RDT', 'RA', 'RAS', 'RAT') then ROLE = 'RESIDUAL';
+MPRINT(EMADVISECOLUMNS):   else if name_prefix ='D' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'DECISION';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix ='B' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('EP', 'BP', 'CP', 'EL', 'CL', 'BL', 'W', 'ROI', 'IC') then ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   array _ROLE_ (19) $32 _TEMPORARY_ ('ASSESS','CLASSIFICATION','CENSOR', 'COST', 'CROSSID', 'DECISION', 'ID','INPUT', 'LABEL', 'MISSING','PREDICT','REFERRER','REJECTED', 'RESIDUAL','SEGMENT', 'SEQUENCE','TARGET', 'TEXT', 'TIMEID');
+MPRINT(EMADVISECOLUMNS):   drop _found_ i;
+MPRINT(EMADVISECOLUMNS):   _found_=0;
+MPRINT(EMADVISECOLUMNS):   do i=1 to 19 until(_found_=1);
+MPRINT(EMADVISECOLUMNS):   if index(_uname, trim(_ROLE_{i}))=1 then do;
+MPRINT(EMADVISECOLUMNS):   ROLE=_ROLE_{i};
+MPRINT(EMADVISECOLUMNS):   if ROLE = 'ID' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'SEGMENT' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'TIMEID' and TYPE='N' then LEVEL = 'INTERVAL';
+MPRINT(EMADVISECOLUMNS):   _found_=1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if length(_uname)>2 then do;
+MPRINT(EMADVISECOLUMNS):   if substr(reverse(trim(_uname)), 1, 3) = 'DI_' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'ID';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if ROLE='FREQ' then _freqflag=1;
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'CLASSIFICATION' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   if symexist('RATEMKG_ROLE') then do;
+MPRINT(EMADVISECOLUMNS):   if upcase(symget('RATEMKG_ROLE')) in('Y', 'YES') then do;
+MPRINT(EMADVISECOLUMNS):   if _uname =: 'POLICY' then ROLE = 'POLICYID';
+MPRINT(EMADVISECOLUMNS):   else if _uname in ('PARTITION', '_PARTIND_') then ROLE = 'PARTITION';
+MPRINT(EMADVISECOLUMNS):   else if type = 'N' then do;
+MPRINT(EMADVISECOLUMNS):   if _uname = 'EXPOSURE' then ROLE = 'EXPOSURE';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'YEAR' then ROLE = 'YEAR';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'WEIGHT' then ROLE = 'WEIGHT';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'OFFSET' then ROLE = 'OFFSET';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if formattype in('DATE', 'DATETIME', 'TIME') then role = 'TIMEID';
+MPRINT(EMADVISECOLUMNS):   else role = 'INPUT';
+MPRINT(EMADVISECOLUMNS):   roleAssigned = 1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else role = upcase(role);
+MPRINT(EMADVISECOLUMNS):   if REPORT = '' then REPORT = 'N';
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   set WORK.M3EF0TRC;
+MPRINT(EMADVISECOLUMNS):   label NAME = "Variable Name" TYPE = "Type" ROLE = "Role" LEVEL= "Measurement Level" ORDER= "Order" CREATOR= "Creator" FORMATTYPE= "Format Type" FAMILY= "Family" DISTRIBUTION= "Distribution" PRICE= "Price" LOWERLIMIT= "Lower 
+limit" UPPERLIMIT= "Upper Limit" REPORT= "Report" COMMENT= "Comment" INDEX= "Index" INDEXTYPE= "IndexType" LABEL= "Label" LENGTH= "Length";
+MPRINT(EMADVISECOLUMNS):   drop levelAssigned roleAssigned;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):   
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.COLUMNMETA;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * &nodeid: Merge incoming metadata;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   proc contents data=EMWS1.Repl_TRAIN noprint out=_temp2(keep=NAME);
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=_temp2;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Repl_CMeta_TRAIN out=_temp;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data EMWS1.Trans_CMeta_TRAIN;
+MPRINT(EM_DIAGRAM):   merge WORK.COLUMNMETA(in=_a) _temp2(in=_b) _temp(drop=FORMAT INFORMAT LENGTH INDEX INDEXTYPE in=_c) end=_eof_;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   if (^_a and _b) or (^_c and _a and _b) then delete;
+MPRINT(EM_DIAGRAM):   if ^_b then CREATOR = "Trans";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Trans: Apply Delta Code;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Computed Code;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   if NAME="LOG_REP_IMP_price" then do;
+MPRINT(EM_DIAGRAM):   COMMENT = "log(REP_IMP_price  + 1) ";
+MPRINT(EM_DIAGRAM):   ROLE ="INPUT";
+MPRINT(EM_DIAGRAM):   REPORT ="N";
+MPRINT(EM_DIAGRAM):   LEVEL ="INTERVAL";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   if NAME="REP_IMP_price" then delete;
+MPRINT(EM_DIAGRAM):   if NAME="LOG_REP_compression_ratio" then do;
+MPRINT(EM_DIAGRAM):   COMMENT = "log(REP_compression_ratio  + 1) ";
+MPRINT(EM_DIAGRAM):   ROLE ="INPUT";
+MPRINT(EM_DIAGRAM):   REPORT ="N";
+MPRINT(EM_DIAGRAM):   LEVEL ="INTERVAL";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   if NAME="REP_compression_ratio" then delete;
+MPRINT(EM_DIAGRAM):   if NAME="LOG_REP_engine_size" then do;
+MPRINT(EM_DIAGRAM):   COMMENT = "log(REP_engine_size  + 1) ";
+MPRINT(EM_DIAGRAM):   ROLE ="INPUT";
+MPRINT(EM_DIAGRAM):   REPORT ="N";
+MPRINT(EM_DIAGRAM):   LEVEL ="INTERVAL";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   if NAME="REP_engine_size" then delete;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _delta;
+NOTE: View EMWS1.TRANS_TRAIN.VIEW used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.12 seconds
+      
+NOTE: View EMWS1.TRANS_VALIDATE.VIEW used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.15 seconds
+      
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

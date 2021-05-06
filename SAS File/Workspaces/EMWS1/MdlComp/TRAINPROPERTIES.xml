@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?><_ROOT_  NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6"
+ ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01"
+ AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" SelectionTable="VALIDATE"
+ SelectionCriteria="_ASE_" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N"
+ TargetName="Risk" ModelId="Neural5" ModelDescription="2HH F Reg NN" ModelCriteria="Valid: Average Squared Error"
+ ForceRun="N" RunAction="Train" Component="ModelCompare" RawCreateTime="1932921657.1"
+ CreateTime="01APR2021:18:40:57" RunId="e8c61a40-13bb-4ed4-a848-8d8e3f03d3f2" StatisticUsed="_VASE_"
+ TargetLabel="" RawLastTimeRun="1934197349.7" RawRunTime="226.37399983" LastTimeRun="16APR2021:13:02:30"
+ RunTime="0 Hr. 3 Min. 46.37 Sec.">
+<VARIABLEPROPERTIES/>
+<FILEPROPERTIES/>
+</_ROOT_>

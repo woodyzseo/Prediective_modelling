@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?><_ROOT_  Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500"
+ Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv"
+ Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="Y" RunAction="Train" Component="FileImport"
+ IFileName="H:\746\Automobile_data.csv" AccessTable="NoTableName" UserID="NoUserID"
+ Password="NoPassword" RawCreateTime="1932595759.1" CreateTime="29MAR2021:00:09:19"
+ RunId="469c73f3-c3f4-473e-a6f8-274990d36613" RawLastTimeRun="1933243548.8" RawRunTime="13.744999886"
+ LastTimeRun="05APR2021:12:05:49" RunTime="0 Hr. 0 Min. 13.74 Sec.">
+<VARIABLEPROPERTIES/>
+<FILEPROPERTIES ><![CDATA[
+USERTRAINCODE
+USERSCORECODE
+USERREPORTCODE
+VARIABLESETDELTA
+DELTACODE
+]]>
+</FILEPROPERTIES></_ROOT_>

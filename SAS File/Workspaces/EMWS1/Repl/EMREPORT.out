@@ -1,0 +1,22 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Replacement Counts
+
+Obs    Variable             Label                Role     Train    Validation
+
+  1    IMP_bore             Imputed bore         INPUT      0           1    
+  2    IMP_price            Imputed price        INPUT      3           4    
+  3    IMP_stroke           Imputed stroke       INPUT      3           2    
+  4    city_mpg             city-mpg             INPUT      1           1    
+  5    compression_ratio    compression-ratio    INPUT      0           0    
+  6    curb_weight          curb-weight          INPUT      1           1    
+  7    engine_size          engine-size          INPUT      1           5    
+  8    height               height               INPUT      0           0    
+  9    highway_mpg          highway-mpg          INPUT      1           1    
+ 10    horsepower           horsepower           INPUT      0           0    
+ 11    length               length               INPUT      0           1    
+ 12    peak_rpm             peak-rpm             INPUT      0           2    
+ 13    wheel_base           wheel-base           INPUT      0           3    
+ 14    width                width                INPUT      1           6    

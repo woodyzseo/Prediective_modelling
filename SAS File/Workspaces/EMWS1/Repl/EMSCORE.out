@@ -1,0 +1,24 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Limits and Replacement Values for Interval Variables
+
+                                                             Lower                      Upper
+                                                 Lower    Replacement       Upper    Replacement
+Variable             Replace Variable            limit       Value          Limit       Value
+
+IMP_bore             REP_IMP_bore                 2.56          2.56         4.04          4.04 
+IMP_price            REP_IMP_price            -8881.56      -8881.56     34427.95      34427.95 
+IMP_stroke           REP_IMP_stroke               2.35          2.35         4.15          4.15 
+city_mpg             REP_city_mpg                 7.36          7.36        43.86         43.86 
+compression_ratio    REP_compression_ratio       -2.27         -2.27        23.02         23.02 
+curb_weight          REP_curb_weight           1095.90       1095.90      3938.80       3938.80 
+engine_size          REP_engine_size             20.51         20.51       226.83        226.83 
+height               REP_height                  46.55         46.55        61.33         61.33 
+highway_mpg          REP_highway_mpg             12.42         12.42        49.90         49.90 
+horsepower           REP_horsepower              -9.27         -9.27       210.11        210.11 
+length               REP_length                 139.37        139.37       207.69        207.69 
+peak_rpm             REP_peak_rpm              3690.50       3690.50      6570.50       6570.50 
+wheel_base           REP_wheel_base              81.95         81.95       115.18        115.18 
+width                REP_width                   60.19         60.19        71.20         71.20 

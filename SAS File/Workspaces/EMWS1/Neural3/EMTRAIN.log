@@ -1,0 +1,1008 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 16, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "11:30:53 o'clock" 
+);
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Training Log
+Date:                April 16, 2021
+Time:                11:30:53 o'clock
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O2I3QT2V "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O2I3QT2V new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOG "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMLOG.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 16, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "11:30:53 o'clock" 
+);
+MPRINT(EM_DIAGRAM):   file _LOG;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                301152869";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "Site:                70104631";
+MPRINT(EM_DIAGRAM):   put "Platform:            W32_8PRO";
+MPRINT(EM_DIAGRAM):   put "Maintenance Release: 9.04.01M2P072314";
+MPRINT(EM_DIAGRAM):   put "EM Version:          13.2";
+MPRINT(EM_DIAGRAM):   put "* ";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMTRAIN.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _LOG MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_LOGIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _LOGIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMSCORE.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMREPORT.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    filename _LOG;
+MPRINT(EM_DIAGRAM):    filename _OUT "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMOUTPUT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 16, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "11:30:53 o'clock" 
+);
+MPRINT(EM_DIAGRAM):   file _OUT;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                301152869";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _OUT MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_OUTIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    filename _OUT;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+111268     proc freq data=EMWS1.Neural3_VariableSet noprint;
+MPRINT(EM_DIAGRAM):    proc freq data=EMWS1.Neural3_VariableSet noprint;
+111269     table ROLE*LEVEL/out=WORK.Neural3META;
+MPRINT(EM_DIAGRAM):   table ROLE*LEVEL/out=WORK.Neural3META;
+111270     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 52 observations read from the data set EMWS1.NEURAL3_VARIABLESET.
+NOTE: The data set WORK.NEURAL3META has 6 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+111271     proc print data=WORK.Neural3META label noobs;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.Neural3META label noobs;
+111272     var ROLE LEVEL COUNT;
+MPRINT(EM_DIAGRAM):   var ROLE LEVEL COUNT;
+111273     label ROLE = "%sysfunc(sasmsg(sashelp.dmine, meta_role_vlabel, NOQUOTE))" LEVEL =
+111273   ! "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" COUNT =
+111273   ! "%sysfunc(sasmsg(sashelp.dmine, rpt_count_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label ROLE = "Role" LEVEL = "Measurement Level" COUNT = "Frequency 
+Count";
+111274     title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+111275     title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_varSummary_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Variable Summary";
+MPRINT(EM_DIAGRAM):   run;
+111276     run;
+
+NOTE: There were 6 observations read from the data set WORK.NEURAL3META.
+NOTE: The PROCEDURE PRINT printed page 81.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+111277     title10;
+MPRINT(EM_DIAGRAM):   title10;
+111278     %let EMNORLEN = %DMNORLEN;
+MPRINT(EM_DIAGRAM):   
+EMWS1.Repl2_TRAIN EMWS1.Repl2_TRAIN 
+EMWS1.Repl2_TRAIN EMWS1.Repl2_TRAIN EMWS1 Repl2_TRAIN 
+EMWS1.Repl2_TRAIN EMWS1.Repl2_TRAIN 
+EMWS1.Repl2_TRAIN EMWS1.Repl2_TRAIN EMWS1 Repl2_TRAIN 
+MPRINT(EM_DIAGRAM):    proc dmdb data=EMWS1.Repl2_TRAIN 
+classout=WORK._DMDBCLASSTARGET(keep=NAME NRAW CRAW LEVEL FREQUENCY NMISSPERCENT);
+MPRINT(EM_DIAGRAM):   class Risk(DESC) ;
+MPRINT(EM_DIAGRAM):   run;
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL _INIT >> 
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL setMetaData >> 
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL next >> 
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL setMetaData >> 
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL next >> 
+Executing  SASHELP.EMCORE.EMINFOITERATOR.SCL _term >> 
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   set WORK._DMDBCLASSTARGET;
+MPRINT(EM_DIAGRAM):   where ^(NRAW eq . and CRAW eq '') and NAME="Risk";
+MPRINT(EM_DIAGRAM):   if _N_=1 then call symput('_newevent', strip(LEVEL));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._DMDBCLASSTARGET out=_TEMPCLASS(keep=LEVEL FREQUENCY 
+NMISSPERCENT rename=(LEVEL=Risk));
+MPRINT(EM_DIAGRAM):   by LEVEL;
+MPRINT(EM_DIAGRAM):   where ^(NRAW eq . and CRAW eq '') and NAME="Risk";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _TEMPCLASS;
+MPRINT(EM_DIAGRAM):   set _TEMPCLASS;
+MPRINT(EM_DIAGRAM):   NMISSPERCENT= NMISSPERCENT/100;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data _sortedDecData;
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_Risk_DD;
+MPRINT(EM_DIAGRAM):   _levelorder_=_N_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=_sortedDecdata;
+MPRINT(EM_DIAGRAM):   by Risk;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   merge _TEMPCLASS(in=_a) _sortedDecdata(in=_b);
+MPRINT(EM_DIAGRAM):   by Risk;
+MPRINT(EM_DIAGRAM):   if (_a and ^_b) or (^_a and _b) then call symput('_emresetDec', '1');
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data EMWS1.Neural3_Risk_DD;
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_Risk_DD;
+MPRINT(EM_DIAGRAM):   _levelorder_=_N_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Neural3_Risk_DD;
+MPRINT(EM_DIAGRAM):   by Risk;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data EMWS1.Neural3_Risk_DD;
+MPRINT(EM_DIAGRAM):   merge EMWS1.Neural3_Risk_DD _TEMPCLASS(rename=(NMISSPERCENT=TRAINPRIOR 
+FREQUENCY=COUNT));
+MPRINT(EM_DIAGRAM):   by Risk;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Neural3_Risk_DD 
+out=EMWS1.Neural3_Risk_DD(drop=_levelorder_);
+MPRINT(EM_DIAGRAM):   by _levelorder_;
+MPRINT(EM_DIAGRAM):   run;
+111325     data WORK.Neural3_EVENT(KEEP=VARIABLE LABEL LEVEL EVENT NUMLEVELS ORDER);
+MPRINT(EM_DIAGRAM):    data WORK.Neural3_EVENT(KEEP=VARIABLE LABEL LEVEL EVENT NUMLEVELS 
+ORDER);
+111326     length ORDER $20;
+MPRINT(EM_DIAGRAM):   length ORDER $20;
+111327     label VARIABLE = "%sysfunc(sasmsg(sashelp.dmine, rpt_target_vlabel,  NOQUOTE))"
+111327   ! EVENT = "%sysfunc(sasmsg(sashelp.dmine, assmt_event_vlabel, NOQUOTE))" NUMLEVELS =
+111327   ! "%sysfunc(sasmsg(sashelp.dmine, rpt_numcat_vlabel, NOQUOTE))" LEVEL =
+111328        "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" ORDER =
+111328   ! "%sysfunc(sasmsg(sashelp.dmine, meta_order_vlabel, NOQUOTE))" LABEL =
+111328   ! "%sysfunc(sasmsg(sashelp.dmine, meta_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label VARIABLE = "Target" EVENT = "Event" NUMLEVELS = "Number of Levels" 
+LEVEL = "Measurement Level" ORDER = "Order" LABEL = "Label";
+111329     set EMWS1.NEURAL3_RISK_DM( where=(_TYPE_="TARGET"));
+MPRINT(EM_DIAGRAM):   set EMWS1.NEURAL3_RISK_DM( where=(_TYPE_="TARGET"));
+111330     NumLevels=2;
+MPRINT(EM_DIAGRAM):   NumLevels=2;
+111331     select(upcase(ORDER));
+MPRINT(EM_DIAGRAM):   select(upcase(ORDER));
+111332     when('DESC') ORDER = 'Descending';
+MPRINT(EM_DIAGRAM):   when('DESC') ORDER = 'Descending';
+111333     when('ASC') ORDER = 'Ascending';
+MPRINT(EM_DIAGRAM):   when('ASC') ORDER = 'Ascending';
+111334     when('FMTDESC') ORDER = 'Formatted Descending';
+MPRINT(EM_DIAGRAM):   when('FMTDESC') ORDER = 'Formatted Descending';
+111335     when('FMTASC') ORDER = 'Formatted Ascending';
+MPRINT(EM_DIAGRAM):   when('FMTASC') ORDER = 'Formatted Ascending';
+111336     otherwise ORDER = 'Descending';
+MPRINT(EM_DIAGRAM):   otherwise ORDER = 'Descending';
+111337     end;
+MPRINT(EM_DIAGRAM):   end;
+111338     output;
+MPRINT(EM_DIAGRAM):   output;
+111339     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set EMWS1.NEURAL3_RISK_DM.
+      WHERE _TYPE_='TARGET';
+NOTE: The data set WORK.NEURAL3_EVENT has 1 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+111340     title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+111341     proc print data=WORK.Neural3_EVENT noobs label;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.Neural3_EVENT noobs label;
+111342     var VARIABLE EVENT LEVEL NUMLEVELS ORDER LABEL;
+MPRINT(EM_DIAGRAM):   var VARIABLE EVENT LEVEL NUMLEVELS ORDER LABEL;
+111343     title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+111344     title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_modelEvent_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Model Events";
+MPRINT(EM_DIAGRAM):   run;
+111345     run;
+
+NOTE: There were 1 observations read from the data set WORK.NEURAL3_EVENT.
+NOTE: The PROCEDURE PRINT printed page 82.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+111346     title10;
+MPRINT(EM_DIAGRAM):   title10;
+"No decisions defined for target "Risk"." 
+111347     proc print data = EMWS1.Neural3_Risk_DM noobs label;
+MPRINT(EM_DIAGRAM):    proc print data = EMWS1.Neural3_Risk_DM noobs label;
+111348     var _type_ variable label;
+MPRINT(EM_DIAGRAM):   var _type_ variable label;
+111349     where _type_ ^in('MATRIX', 'DECISION', 'TRAINPRIOR', 'DATAPRIOR', 'DECPRIOR');
+MPRINT(EM_DIAGRAM):   where _type_ ^in('MATRIX', 'DECISION', 'TRAINPRIOR', 'DATAPRIOR', 
+'DECPRIOR');
+111350     label _TYPE_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_type_vlabel,     NOQUOTE))"
+111350   ! VARIABLE = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" LABEL =
+111350   ! "%sysfunc(sasmsg(sashelp.dmine, meta_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _TYPE_ = "Type" VARIABLE = "Variable" LABEL = "Label";
+111351     title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+111352     title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_predDecVars_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Predicted and decision variables";
+MPRINT(EM_DIAGRAM):   run;
+111353     run;
+
+NOTE: There were 7 observations read from the data set EMWS1.NEURAL3_RISK_DM.
+      WHERE _type_ not in ('DATAPRIOR', 'DECISION', 'DECPRIOR', 'MATRIX', 'TRAINPRIOR');
+NOTE: The PROCEDURE PRINT printed page 83.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+111354     title10;
+MPRINT(EM_DIAGRAM):   title10;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Neural3: Preparing metadata for training;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   data WORK.M0GO23AJ;
+MPRINT(EM_DIAGRAM):   set WORK.M0GO23AJ;
+MPRINT(EM_DIAGRAM):   where(use = 'Y' or (role = 'INPUT' and use = 'D'));
+MPRINT(EM_DIAGRAM):   if (role = 'REJECTED') then role = 'INPUT';
+MPRINT(EM_DIAGRAM):   run;
+111364     data WORK.M0GO23AJ;
+MPRINT(EM_DIAGRAM):    data WORK.M0GO23AJ;
+111365     set WORK.M0GO23AJ end=eof;
+MPRINT(EM_DIAGRAM):   set WORK.M0GO23AJ end=eof;
+111366     output;
+MPRINT(EM_DIAGRAM):   output;
+111367     if eof then do;
+MPRINT(EM_DIAGRAM):   if eof then do;
+111368     NAME="";
+MPRINT(EM_DIAGRAM):   NAME="";
+111369     ROLE="COST";
+MPRINT(EM_DIAGRAM):   ROLE="COST";
+111370     LEVEL="INTERVAL";
+MPRINT(EM_DIAGRAM):   LEVEL="INTERVAL";
+111371     TYPE="N";
+MPRINT(EM_DIAGRAM):   TYPE="N";
+111372     output;
+MPRINT(EM_DIAGRAM):   output;
+111373     end;
+MPRINT(EM_DIAGRAM):   end;
+111374     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 28 observations read from the data set WORK.M0GO23AJ.
+NOTE: The data set WORK.M0GO23AJ has 29 observations and 29 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: There were 2 observations read from the data set EMWS1.NEURAL3_RISK_DD.
+NOTE: The data set WORK.RISK has 2 observations and 7 variables.
+NOTE: There were 2 observations read from the data set EMWS1.NEURAL3_RISK_DD.
+NOTE: The data set WORK.RISK has 2 observations and 7 variables.
+111375     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+111376     * Neural3: Create decision matrix;
+MPRINT(EM_DIAGRAM):   * Neural3: Create decision matrix;
+111377     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111378     data WORK.Risk;
+MPRINT(EM_DIAGRAM):   data WORK.Risk;
+111379       length   Risk                             $  32
+111380                COUNT                                8
+111381                DATAPRIOR                            8
+111382                TRAINPRIOR                           8
+111383                DECPRIOR                             8
+111384                DECISION1                            8
+111385                DECISION2                            8
+111386                ;
+MPRINT(EM_DIAGRAM):   length Risk $ 32 COUNT 8 DATAPRIOR 8 TRAINPRIOR 8 DECPRIOR 8 DECISION1 8 
+DECISION2 8 ;
+111387     
+111388       label    COUNT="Level Counts"
+111389                DATAPRIOR="Data Proportions"
+111390                TRAINPRIOR="Training Proportions"
+111391                DECPRIOR="Decision Priors"
+111392                DECISION1="1"
+111393                DECISION2="0"
+111394                ;
+MPRINT(EM_DIAGRAM):   label COUNT= "Level Counts" DATAPRIOR= "Data Proportions" TRAINPRIOR= 
+"Training Proportions" DECPRIOR= "Decision Priors" DECISION1= "1" DECISION2= "0" ;
+111395       format   COUNT 10.
+111396                ;
+MPRINT(EM_DIAGRAM):   format COUNT 10. ;
+111397     Risk="1"; COUNT=54; DATAPRIOR=0.55445544554455; TRAINPRIOR=0.54; DECPRIOR=.;
+111397   ! DECISION1=1; DECISION2=0;
+MPRINT(EM_DIAGRAM):   Risk="1";
+MPRINT(EM_DIAGRAM):   COUNT=54;
+MPRINT(EM_DIAGRAM):   DATAPRIOR=0.55445544554455;
+MPRINT(EM_DIAGRAM):   TRAINPRIOR=0.54;
+MPRINT(EM_DIAGRAM):   DECPRIOR=.;
+MPRINT(EM_DIAGRAM):   DECISION1=1;
+MPRINT(EM_DIAGRAM):   DECISION2=0;
+111398     output;
+MPRINT(EM_DIAGRAM):   output;
+111399     Risk="0"; COUNT=46; DATAPRIOR=0.44554455445544; TRAINPRIOR=0.46; DECPRIOR=.;
+111399   ! DECISION1=0; DECISION2=1;
+MPRINT(EM_DIAGRAM):   Risk="0";
+MPRINT(EM_DIAGRAM):   COUNT=46;
+MPRINT(EM_DIAGRAM):   DATAPRIOR=0.44554455445544;
+MPRINT(EM_DIAGRAM):   TRAINPRIOR=0.46;
+MPRINT(EM_DIAGRAM):   DECPRIOR=.;
+MPRINT(EM_DIAGRAM):   DECISION1=0;
+MPRINT(EM_DIAGRAM):   DECISION2=1;
+111400     output;
+MPRINT(EM_DIAGRAM):   output;
+111401     ;
+MPRINT(EM_DIAGRAM):   ;
+111402     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.RISK has 2 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+111403     proc datasets lib=work nolist;
+MPRINT(EM_DIAGRAM):   proc datasets lib=work nolist;
+111404     modify Risk(type=PROFIT label=Risk);
+MPRINT(EM_DIAGRAM):   modify Risk(type=PROFIT label= Risk);
+MPRINT(EM_DIAGRAM):   label DECISION1= '1';
+MPRINT(EM_DIAGRAM):   label DECISION2= '0';
+MPRINT(EM_DIAGRAM):   run;
+111405     label DECISION1= '1';
+111406     label DECISION2= '0';
+111407     run;
+
+NOTE: MODIFY was successful for WORK.RISK.DATA.
+111408     quit;
+MPRINT(EM_DIAGRAM):   quit;
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+111409     data EM_Neural3;
+MPRINT(EM_DIAGRAM):   data EM_Neural3;
+111410     set EMWS1.Repl2_TRAIN(keep=
+111411     IMP_num_of_doors LOG_REP_IMP_price LOG_REP_compression_ratio
+111412     LOG_REP_engine_size M_bore M_num_of_doors M_price M_stroke REP_IMP_bore
+111413     REP_IMP_stroke REP_aspiration REP_body_style REP_city_mpg REP_curb_weight
+111414     REP_drive_wheels REP_engine_location REP_fuel_system REP_fuel_type REP_height
+111415     REP_highway_mpg REP_horsepower REP_length REP_num_of_cylinders REP_peak_rpm
+111416     REP_wheel_base REP_width Risk engine_type );
+MPRINT(EM_DIAGRAM):   set EMWS1.Repl2_TRAIN(keep= IMP_num_of_doors LOG_REP_IMP_price 
+LOG_REP_compression_ratio LOG_REP_engine_size M_bore M_num_of_doors M_price M_stroke 
+REP_IMP_bore REP_IMP_stroke REP_aspiration REP_body_style REP_city_mpg REP_curb_weight 
+REP_drive_wheels REP_engine_location REP_fuel_system REP_fuel_type REP_height REP_highway_mpg 
+REP_horsepower REP_length REP_num_of_cylinders REP_peak_rpm REP_wheel_base REP_width Risk 
+engine_type );
+111417     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 100 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.IMPT_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.REPL_TRAIN.
+NOTE: View EMWS1.REPL2_TRAIN.VIEW used (Total process time):
+      real time           0.17 seconds
+      cpu time            0.17 seconds
+      
+NOTE: There were 100 observations read from the data set EMWS1.TRANS_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.REPL2_TRAIN.
+NOTE: The data set WORK.EM_NEURAL3 has 100 observations and 28 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.20 seconds
+      
+
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * Neural3: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111418     *------------------------------------------------------------* ;
+111419     * Neural3: DMDBClass Macro ;
+111420     *------------------------------------------------------------* ;
+111421     %macro DMDBClass;
+111422         IMP_num_of_doors(ASC) M_bore(ASC) M_num_of_doors(ASC) M_price(ASC)
+111423        M_stroke(ASC) REP_aspiration(ASC) REP_body_style(ASC) REP_drive_wheels(ASC)
+111424        REP_engine_location(ASC) REP_fuel_system(ASC) REP_fuel_type(ASC)
+111425        REP_num_of_cylinders(ASC) Risk(DESC) engine_type(ASC)
+111426     %mend DMDBClass;
+111427     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111428     * Neural3: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * Neural3: DMDBVar Macro ;
+111429     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111430     %macro DMDBVar;
+111431         LOG_REP_IMP_price LOG_REP_compression_ratio LOG_REP_engine_size REP_IMP_bore
+111432        REP_IMP_stroke REP_city_mpg REP_curb_weight REP_height REP_highway_mpg
+111433        REP_horsepower REP_length REP_peak_rpm REP_wheel_base REP_width
+111434     %mend DMDBVar;
+111435     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111436     * Neural3: Create DMDB;
+MPRINT(EM_DIAGRAM):   * Neural3: Create DMDB;
+111437     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111438     proc dmdb batch data=WORK.EM_Neural3
+111439     dmdbcat=WORK.Neural3_DMDB
+111440     maxlevel = 513
+111441     ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=WORK.EM_Neural3 dmdbcat=WORK.Neural3_DMDB maxlevel 
+= 513 ;
+MPRINT(EM_DIAGRAM):   class
+111442     class %DMDBClass;
+MPRINT(DMDBCLASS):   IMP_num_of_doors(ASC) M_bore(ASC) M_num_of_doors(ASC) M_price(ASC) 
+M_stroke(ASC) REP_aspiration(ASC) REP_body_style(ASC) REP_drive_wheels(ASC) 
+REP_engine_location(ASC) REP_fuel_system(ASC) REP_fuel_type(ASC) REP_num_of_cylinders(ASC) 
+Risk(DESC) engine_type(ASC)
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   var
+111443     var %DMDBVar;
+MPRINT(DMDBVAR):   LOG_REP_IMP_price LOG_REP_compression_ratio LOG_REP_engine_size 
+REP_IMP_bore REP_IMP_stroke REP_city_mpg REP_curb_weight REP_height REP_highway_mpg 
+REP_horsepower REP_length REP_peak_rpm REP_wheel_base REP_width
+MPRINT(EM_DIAGRAM):  ;
+111444     target
+111445     Risk
+111446     ;
+MPRINT(EM_DIAGRAM):   target Risk ;
+111447     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Records processed = 100   Memory used = 511K.
+NOTE: There were 100 observations read from the data set WORK.EM_NEURAL3.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *--- end code ---*;
+111448     quit;
+111449     *--- end code ---*;
+
+111450     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+111451     * Neural3: Interval Input Variables Macro ;
+MPRINT(EM_DIAGRAM):   * Neural3: Interval Input Variables Macro ;
+111452     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111453     %macro INTINPUTS;
+111454         LOG_REP_IMP_price LOG_REP_compression_ratio LOG_REP_engine_size REP_IMP_bore
+111455        REP_IMP_stroke REP_city_mpg REP_curb_weight REP_height REP_highway_mpg
+111456        REP_horsepower REP_length REP_peak_rpm REP_wheel_base REP_width
+111457     %mend INTINPUTS;
+111458     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111459     * Neural3: Binary Inputs Macro ;
+MPRINT(EM_DIAGRAM):   * Neural3: Binary Inputs Macro ;
+111460     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111461     %macro BININPUTS;
+111462         M_bore M_num_of_doors M_price M_stroke
+111463     %mend BININPUTS;
+111464     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111465     * Neural3: Nominal Inputs Macro ;
+MPRINT(EM_DIAGRAM):   * Neural3: Nominal Inputs Macro ;
+111466     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111467     %macro NOMINPUTS;
+111468         IMP_num_of_doors REP_aspiration REP_body_style REP_drive_wheels
+111469        REP_engine_location REP_fuel_system REP_fuel_type REP_num_of_cylinders
+111470        engine_type
+111471     %mend NOMINPUTS;
+111472     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111473     * Neural3: Ordinal Inputs Macro ;
+MPRINT(EM_DIAGRAM):   * Neural3: Ordinal Inputs Macro ;
+111474     *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+111475     %macro ORDINPUTS;
+111476     
+111477     %mend ORDINPUTS;
+111478     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111479     * Neural Network Training;
+MPRINT(EM_DIAGRAM):   * Neural Network Training;
+111480     ;
+MPRINT(EM_DIAGRAM):   ;
+111481     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111482     proc neural data=EM_Neural3 dmdbcat=WORK.Neural3_DMDB
+111483     validdata = EMWS1.Repl2_VALIDATE
+111484     random=12345
+111485     ;
+MPRINT(EM_DIAGRAM):   proc neural data=EM_Neural3 dmdbcat=WORK.Neural3_DMDB validdata = 
+EMWS1.Repl2_VALIDATE random=12345 ;
+111486     nloptions
+111487     ;
+MPRINT(EM_DIAGRAM):   nloptions ;
+111488     performance alldetails noutilfile;
+MPRINT(EM_DIAGRAM):   performance alldetails noutilfile;
+111489     netopts
+111490     decay=0;
+MPRINT(EM_DIAGRAM):   netopts decay=0;
+MPRINT(EM_DIAGRAM):   input
+111491     input %INTINPUTS / level=interval id=intvl
+MPRINT(INTINPUTS):   LOG_REP_IMP_price LOG_REP_compression_ratio LOG_REP_engine_size 
+REP_IMP_bore REP_IMP_stroke REP_city_mpg REP_curb_weight REP_height REP_highway_mpg 
+REP_horsepower REP_length REP_peak_rpm REP_wheel_base REP_width
+111492     ;
+MPRINT(EM_DIAGRAM):   / level=interval id=intvl ;
+MPRINT(EM_DIAGRAM):   input
+111493     input %BININPUTS / level=nominal id=bin
+MPRINT(BININPUTS):   M_bore M_num_of_doors M_price M_stroke
+111494     ;
+MPRINT(EM_DIAGRAM):   / level=nominal id=bin ;
+MPRINT(EM_DIAGRAM):   input
+111495     input %NOMINPUTS / level=nominal id=nom
+MPRINT(NOMINPUTS):   IMP_num_of_doors REP_aspiration REP_body_style REP_drive_wheels 
+REP_engine_location REP_fuel_system REP_fuel_type REP_num_of_cylinders engine_type
+111496     ;
+MPRINT(EM_DIAGRAM):   / level=nominal id=nom ;
+111497     target Risk / level=NOMINAL id=Risk
+111498     bias
+111499     ;
+MPRINT(EM_DIAGRAM):   target Risk / level=NOMINAL id=Risk bias ;
+111500     arch MLP
+111501     Hidden=2
+111502     ;
+MPRINT(EM_DIAGRAM):   arch MLP Hidden=2 ;
+111503     save network=EMWS1.Neural3_NETWORK.dm_neural;
+MPRINT(EM_DIAGRAM):   save network=EMWS1.Neural3_NETWORK.dm_neural;
+NOTE: Entry EMWS1.NEURAL3_NETWORK.DM_NEURAL has been opened.
+NOTE: Entry EMWS1.NEURAL3_NETWORK.DM_NEURAL has been closed.
+111504     train Maxiter=50
+111505     maxtime=300
+111506     Outest=EMWS1.Neural3_outest estiter=1
+111507     Outfit=EMWS1.Neural3_OUTFIT
+111508     ;
+MPRINT(EM_DIAGRAM):   train Maxiter=50 maxtime=300 Outest=EMWS1.Neural3_outest estiter=1 
+Outfit=EMWS1.Neural3_OUTFIT ;
+NOTE:  Synchronizing the objectives and the Solution.
+WARNING: LEVMAR Optimization cannot be completed.
+NOTE: LEVMAR needs more than 50 iterations or 2147483647 function calls.
+NOTE: The data set EMWS1.NEURAL3_OUTEST has 126 observations and 88 variables.
+NOTE: The data set EMWS1.NEURAL3_OUTFIT has 104 observations and 36 variables.
+111509     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.EM_NEURAL3 has 100 observations and 28 variables.
+NOTE: The data set EMWS1.REPL2_VALIDATE has . observations and 60 variables.
+NOTE: There were 100 observations read from the data set EMWS1.PART_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.IMPT_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.REPL_VALIDATE.
+NOTE: View EMWS1.REPL2_VALIDATE.VIEW used (Total process time):
+      real time           0.61 seconds
+      cpu time            0.40 seconds
+      
+NOTE: There were 100 observations read from the data set EMWS1.TRANS_VALIDATE.
+NOTE: Closing the Neural Application.
+NOTE: The PROCEDURE NEURAL printed pages 84-86.
+NOTE: PROCEDURE NEURAL used (Total process time):
+      real time           0.63 seconds
+      cpu time            0.40 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+111510     quit;
+
+111511     proc sort data=EMWS1.Neural3_OUTFIT(where=(_iter_ ne . and _NAME_="OVERALL"))
+111511   ! out=fit_Neural3;
+MPRINT(EM_DIAGRAM):    proc sort data=EMWS1.Neural3_OUTFIT(where=(_iter_ ne . and 
+_NAME_="OVERALL")) out=fit_Neural3;
+111512     by _VAVERR_;
+MPRINT(EM_DIAGRAM):   by _VAVERR_;
+111513     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 52 observations read from the data set EMWS1.NEURAL3_OUTFIT.
+      WHERE (_iter_ not = .) and (_NAME_='OVERALL');
+NOTE: The data set WORK.FIT_NEURAL3 has 52 observations and 36 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+111514     %GLOBAL ITER;
+111515     data _null_;
+MPRINT(EM_DIAGRAM):   data _null_;
+111516     set fit_Neural3(obs=1);
+MPRINT(EM_DIAGRAM):   set fit_Neural3(obs=1);
+111517     call symput('ITER',put(_ITER_, 6.));
+MPRINT(EM_DIAGRAM):   call symput('ITER',put(_ITER_, 6.));
+111518     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.FIT_NEURAL3.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+111519     data EMWS1.Neural3_INITIAL;
+MPRINT(EM_DIAGRAM):   data EMWS1.Neural3_INITIAL;
+111520     set EMWS1.Neural3_outest(where=(_ITER_ eq &ITER and _OBJ_ ne .));
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_outest(where=(_ITER_ eq 11 and _OBJ_ ne .));
+111521     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set EMWS1.NEURAL3_OUTEST.
+      WHERE (_ITER_=11) and (_OBJ_ not = .);
+NOTE: The data set EMWS1.NEURAL3_INITIAL has 1 observations and 88 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+
+111522     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+111523     * Neural Network Model Selection;
+MPRINT(EM_DIAGRAM):   * Neural Network Model Selection;
+111524     ;
+MPRINT(EM_DIAGRAM):   ;
+111525     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+111526     proc neural data=EM_Neural3 dmdbcat=WORK.Neural3_DMDB
+111527     validdata = EMWS1.Repl2_VALIDATE
+111528     network = EMWS1.Neural3_NETWORK.dm_neural
+111529     random=12345
+111530     ;
+MPRINT(EM_DIAGRAM):   proc neural data=EM_Neural3 dmdbcat=WORK.Neural3_DMDB validdata = 
+EMWS1.Repl2_VALIDATE network = EMWS1.Neural3_NETWORK.dm_neural random=12345 ;
+NOTE: Entry EMWS1.NEURAL3_NETWORK.DM_NEURAL has been opened.
+NOTE: Entry EMWS1.NEURAL3_NETWORK.DM_NEURAL has been closed.
+111531     nloptions noprint;
+MPRINT(EM_DIAGRAM):   nloptions noprint;
+111532     performance alldetails noutilfile;
+MPRINT(EM_DIAGRAM):   performance alldetails noutilfile;
+111533     initial inest=EMWS1.Neural3_INITIAL;
+MPRINT(EM_DIAGRAM):   initial inest=EMWS1.Neural3_INITIAL;
+NOTE: The data set EMWS1.NEURAL3_INITIAL has 1 observations and 88 variables.
+111534     train tech=NONE;
+MPRINT(EM_DIAGRAM):   train tech=NONE;
+NOTE: No optimization performed.
+111535     code file="H:\746\Decision Tree test\Workspaces\EMWS1\Neural3\SCORECODE.sas"
+111536     group=Neural3
+111537     ;
+MPRINT(EM_DIAGRAM):   code file="H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\SCORECODE.sas" group=Neural3 ;
+NOTE: External file H:\746\Decision Tree test\Workspaces\EMWS1\Neural3\SCORECODE.sas opened.
+111538     ;
+MPRINT(EM_DIAGRAM):   ;
+111539     code file="H:\746\Decision Tree test\Workspaces\EMWS1\Neural3\RESIDUALSCORECODE.sas"
+111540     group=Neural3
+111541     residual
+111542     ;
+MPRINT(EM_DIAGRAM):   code file="H:\746\Decision Tree 
+test\Workspaces\EMWS1\Neural3\RESIDUALSCORECODE.sas" group=Neural3 residual ;
+NOTE: External file H:\746\Decision Tree test\Workspaces\EMWS1\Neural3\RESIDUALSCORECODE.sas 
+      opened.
+111543     ;
+MPRINT(EM_DIAGRAM):   ;
+111544     score data=EMWS1.Repl2_TRAIN out=_NULL_
+NOTE: View EMWS1.REPL2_TRAIN.VIEW used (Total process time):
+      real time           0.27 seconds
+      cpu time            0.18 seconds
+      
+111545     outfit=WORK.FIT1
+111546     role=TRAIN
+111547     outkey=EMWS1.Neural3_OUTKEY;
+MPRINT(EM_DIAGRAM):   score data=EMWS1.Repl2_TRAIN out=_NULL_ outfit=WORK.FIT1 role=TRAIN 
+outkey=EMWS1.Neural3_OUTKEY;
+NOTE: The data set EMWS1.NEURAL3_OUTKEY has 48 observations and 8 variables.
+NOTE: The data set EMWS1.REPL2_TRAIN has . observations and 60 variables.
+NOTE: There were 100 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.IMPT_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.REPL_TRAIN.
+NOTE: There were 100 observations read from the data set EMWS1.TRANS_TRAIN.
+NOTE: The data set WORK.FIT1 has 2 observations and 23 variables.
+111548     score data=EMWS1.Repl2_VALIDATE out=_NULL_
+NOTE: View EMWS1.REPL2_VALIDATE.VIEW used (Total process time):
+      real time           0.25 seconds
+      cpu time            0.17 seconds
+      
+111549     outfit=WORK.FIT2
+111550     role=VALID
+111551     outkey=EMWS1.Neural3_OUTKEY;
+MPRINT(EM_DIAGRAM):   score data=EMWS1.Repl2_VALIDATE out=_NULL_ outfit=WORK.FIT2 role=VALID 
+outkey=EMWS1.Neural3_OUTKEY;
+NOTE: The data set EMWS1.NEURAL3_OUTKEY has 48 observations and 8 variables.
+NOTE: The data set EMWS1.REPL2_VALIDATE has . observations and 60 variables.
+NOTE: There were 100 observations read from the data set EMWS1.PART_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.IMPT_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.REPL_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.TRANS_VALIDATE.
+NOTE: The data set WORK.FIT2 has 2 observations and 15 variables.
+111552     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.EM_NEURAL3 has 100 observations and 28 variables.
+NOTE: The data set EMWS1.REPL2_VALIDATE has . observations and 60 variables.
+NOTE: There were 100 observations read from the data set EMWS1.PART_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.IMPT_VALIDATE.
+NOTE: There were 100 observations read from the data set EMWS1.REPL_VALIDATE.
+NOTE: View EMWS1.REPL2_VALIDATE.VIEW used (Total process time):
+      real time           0.95 seconds
+      cpu time            0.65 seconds
+      
+NOTE: There were 100 observations read from the data set EMWS1.TRANS_VALIDATE.
+NOTE: Closing the Neural Application.
+NOTE: PROCEDURE NEURAL used (Total process time):
+      real time           0.96 seconds
+      cpu time            0.67 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+111553     quit;
+111554     data EMWS1.Neural3_OUTFIT;
+MPRINT(EM_DIAGRAM):   data EMWS1.Neural3_OUTFIT;
+111555     merge WORK.FIT1 WORK.FIT2;
+MPRINT(EM_DIAGRAM):   merge WORK.FIT1 WORK.FIT2;
+111556     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 2 observations read from the data set WORK.FIT1.
+NOTE: There were 2 observations read from the data set WORK.FIT2.
+NOTE: The data set EMWS1.NEURAL3_OUTFIT has 2 observations and 36 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.00 seconds
+      
+
+111557     data EMWS1.Neural3_EMESTIMATE;
+MPRINT(EM_DIAGRAM):   data EMWS1.Neural3_EMESTIMATE;
+111558     set EMWS1.Neural3_outest;
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_outest;
+111559     if _type_ ^in('HESSIAN' 'GRAD');
+MPRINT(EM_DIAGRAM):   if _type_ ^in('HESSIAN' 'GRAD');
+111560     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 126 observations read from the data set EMWS1.NEURAL3_OUTEST.
+NOTE: The data set EMWS1.NEURAL3_EMESTIMATE has 52 observations and 88 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.03 seconds
+      
+
+111561     proc datasets lib=work nolist;
+MPRINT(EM_DIAGRAM):   proc datasets lib=work nolist;
+111562     delete EM_Neural3;
+MPRINT(EM_DIAGRAM):   delete EM_Neural3;
+111563     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Deleting WORK.EM_NEURAL3 (memtype=DATA).
+111564     quit;
+MPRINT(EM_DIAGRAM):   quit;
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+111565     data EMWS1.Neural3_PLOTDS(where=(_iter_ ne . and _NAME_="OVERALL"));
+MPRINT(EM_DIAGRAM):    data EMWS1.Neural3_PLOTDS(where=(_iter_ ne . and _NAME_="OVERALL"));
+111566     set fit_Neural3;
+MPRINT(EM_DIAGRAM):   set fit_Neural3;
+111567     attrib _ITER_ label="%sysfunc(sasmsg(sashelp.dmine, rpt_trainiterations_vlabel  ,
+111567   ! NOQUOTE))";
+MPRINT(EM_DIAGRAM):   attrib _ITER_ label="Training Iterations";
+111568     attrib _NAME_ label="%sysfunc(sasmsg(sashelp.dmine, rpt_varsel_label_name  ,
+111568   ! NOQUOTE))";
+MPRINT(EM_DIAGRAM):   attrib _NAME_ label="Name";
+111569     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 52 observations read from the data set WORK.FIT_NEURAL3.
+NOTE: The data set EMWS1.NEURAL3_PLOTDS has 52 observations and 36 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.00 seconds
+      
+
+111570     proc sort data=EMWS1.Neural3_PLOTDS;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Neural3_PLOTDS;
+111571     by _ITER_;
+MPRINT(EM_DIAGRAM):   by _ITER_;
+111572     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 52 observations read from the data set EMWS1.NEURAL3_PLOTDS.
+NOTE: The data set EMWS1.NEURAL3_PLOTDS has 52 observations and 36 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.00 seconds
+      
+
+111573     data tempweight (drop= _tech_ _decay_ _seed_ _nobj_ _obj_ _objerr_ _averr_ _p_num_
+111573   ! where=(_type_ eq "PARMS" and _iter_ eq 11) );
+MPRINT(EM_DIAGRAM):    data tempweight (drop= _tech_ _decay_ _seed_ _nobj_ _obj_ _objerr_ 
+_averr_ _p_num_ where=(_type_ eq "PARMS" and _iter_ eq 11) );
+111574     set EMWS1.Neural3_EMESTIMATE;
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_EMESTIMATE;
+111575     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 52 observations read from the data set EMWS1.NEURAL3_EMESTIMATE.
+NOTE: The data set WORK.TEMPWEIGHT has 1 observations and 80 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.00 seconds
+      
+
+111576     proc sort;
+MPRINT(EM_DIAGRAM):   proc sort;
+111577     by _name_;
+MPRINT(EM_DIAGRAM):   by _name_;
+111578     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.TEMPWEIGHT.
+NOTE: The data set WORK.TEMPWEIGHT has 1 observations and 80 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+111579     proc transpose data=tempweight out=EMWS1.Neural3_WEIGHTDS;
+MPRINT(EM_DIAGRAM):   proc transpose data=tempweight out=EMWS1.Neural3_WEIGHTDS;
+111580     by _name_;
+MPRINT(EM_DIAGRAM):   by _name_;
+111581     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.TEMPWEIGHT.
+NOTE: The data set EMWS1.NEURAL3_WEIGHTDS has 78 observations and 3 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.43 seconds
+      cpu time            0.04 seconds
+      
+
+111582     data EMWS1.Neural3_WEIGHTDS;
+MPRINT(EM_DIAGRAM):   data EMWS1.Neural3_WEIGHTDS;
+111583     set EMWS1.Neural3_WEIGHTDS;
+MPRINT(EM_DIAGRAM):   set EMWS1.Neural3_WEIGHTDS;
+111584     FROM = trim(left(scan(_LABEL_, 1, '->')));
+MPRINT(EM_DIAGRAM):   FROM = trim(left(scan(_LABEL_, 1, '->')));
+111585     TO = trim(left(scan(_LABEL_, 2, '>')));
+MPRINT(EM_DIAGRAM):   TO = trim(left(scan(_LABEL_, 2, '>')));
+111586     WEIGHT = COL1;
+MPRINT(EM_DIAGRAM):   WEIGHT = COL1;
+111587     if (TO eq '') or (FROM eq '') then delete;
+MPRINT(EM_DIAGRAM):   if (TO eq '') or (FROM eq '') then delete;
+111588     label _LABEL_ ="%sysfunc(sasmsg(sashelp.dmine, meta_label_vlabel  , NOQUOTE))" FROM
+111588   ! = "%sysfunc(sasmsg(sashelp.dmine, rpt_from_vlabel  , NOQUOTE))" TO =
+111588   ! "%sysfunc(sasmsg(sashelp.dmine, rpt_into_vlabel  , NOQUOTE))" WEIGHT =
+111589        "%sysfunc(sasmsg(sashelp.dmine, rpt_weight_vlabel  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _LABEL_ = "Label" FROM = "From" TO = "Into" WEIGHT = "Weight";
+111590     keep FROM TO WEIGHT _LABEL_;
+MPRINT(EM_DIAGRAM):   keep FROM TO WEIGHT _LABEL_;
+111591     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 78 observations read from the data set EMWS1.NEURAL3_WEIGHTDS.
+NOTE: The data set EMWS1.NEURAL3_WEIGHTDS has 73 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.33 seconds
+      cpu time            0.01 seconds
+      
+
+111592     proc sort data=EMWS1.Neural3_WEIGHTDS nodupkey;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS1.Neural3_WEIGHTDS nodupkey;
+111593     by _LABEL_;
+MPRINT(EM_DIAGRAM):   by _LABEL_;
+111594     run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 73 observations read from the data set EMWS1.NEURAL3_WEIGHTDS.
+NOTE: 0 observations with duplicate key values were deleted.
+NOTE: The data set EMWS1.NEURAL3_WEIGHTDS has 73 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

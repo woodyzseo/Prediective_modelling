@@ -1,0 +1,735 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 05, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:09:27 o'clock" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Training Log
+Date:                April 05, 2021
+Time:                13:09:27 o'clock
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O10W47ZG "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O10W47ZG new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOG "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMLOG.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 05, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:09:27 o'clock" );
+MPRINT(EM_DIAGRAM):   file _LOG;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                301152869";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "Site:                70104631";
+MPRINT(EM_DIAGRAM):   put "Platform:            W32_8PRO";
+MPRINT(EM_DIAGRAM):   put "Maintenance Release: 9.04.01M2P072314";
+MPRINT(EM_DIAGRAM):   put "EM Version:          13.2";
+MPRINT(EM_DIAGRAM):   put "* ";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMTRAIN.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _LOG MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_LOGIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _LOGIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMSCORE.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMREPORT.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    filename _LOG;
+MPRINT(EM_DIAGRAM):    filename _OUT "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMOUTPUT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "April 05, 2021" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:09:27 o'clock" );
+MPRINT(EM_DIAGRAM):   file _OUT;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                301152869";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _OUT MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_OUTIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    filename _OUT;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'H:\746\Decision Tree test\Workspaces\EMWS1\Impt\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+35230      proc freq data=EMWS1.Impt_VariableSet noprint;
+MPRINT(EM_DIAGRAM):    proc freq data=EMWS1.Impt_VariableSet noprint;
+35231      table ROLE*LEVEL/out=WORK.ImptMETA;
+MPRINT(EM_DIAGRAM):   table ROLE*LEVEL/out=WORK.ImptMETA;
+35232      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 27 observations read from the data set EMWS1.IMPT_VARIABLESET.
+NOTE: The data set WORK.IMPTMETA has 5 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.00 seconds
+      
+
+35233      proc print data=WORK.ImptMETA label noobs;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.ImptMETA label noobs;
+35234      var ROLE LEVEL COUNT;
+MPRINT(EM_DIAGRAM):   var ROLE LEVEL COUNT;
+35235      label ROLE = "%sysfunc(sasmsg(sashelp.dmine, meta_role_vlabel, NOQUOTE))" LEVEL = "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" COUNT = "%sysfunc(sasmsg(sashelp.dmine, rpt_count_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label ROLE = "Role" LEVEL = "Measurement Level" COUNT = "Frequency Count";
+35236      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+35237      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_varSummary_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Variable Summary";
+MPRINT(EM_DIAGRAM):   run;
+35238      run;
+
+NOTE: There were 5 observations read from the data set WORK.IMPTMETA.
+NOTE: The PROCEDURE PRINT printed page 9.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35239      title10;
+MPRINT(EM_DIAGRAM):   title10;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Impt: Preparing metadata for training;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   data WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   set WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   where(use = 'Y' or (ROLE ne 'REJECTED' and USE = 'D'));
+MPRINT(EM_DIAGRAM):   if (role = 'REJECTED') then role = 'INPUT';
+MPRINT(EM_DIAGRAM):   if role = 'INPUT' and METHOD='DEFAULT' then do;
+MPRINT(EM_DIAGRAM):   if level ne 'INTERVAL' then METHOD = "COUNT";
+MPRINT(EM_DIAGRAM):   else METHOD = "MEAN";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   else if role = 'TARGET' and METHOD='DEFAULT' then do;
+MPRINT(EM_DIAGRAM):   if level ne 'INTERVAL' then METHOD = "NONE";
+MPRINT(EM_DIAGRAM):   else METHOD = "NONE";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   run;
+35257      data WORK.Impt_TREEINPUTS;
+MPRINT(EM_DIAGRAM):    data WORK.Impt_TREEINPUTS;
+35258      set WORK.M08FD88R;
+MPRINT(EM_DIAGRAM):   set WORK.M08FD88R;
+35259      if ROLE ne 'FREQ' then do;
+MPRINT(EM_DIAGRAM):   if ROLE ne 'FREQ' then do;
+35260      if ((ROLE in('TARGET','REJECTED') and useTree='D') or useTree='N') then delete;
+MPRINT(EM_DIAGRAM):   if ((ROLE in('TARGET','REJECTED') and useTree='D') or useTree='N') then delete;
+35261      ROLE = 'INPUT';
+MPRINT(EM_DIAGRAM):   ROLE = 'INPUT';
+35262      end;
+MPRINT(EM_DIAGRAM):   end;
+35263      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M08FD88R.
+NOTE: The data set WORK.IMPT_TREEINPUTS has 23 observations and 31 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35264      data WORK.M08FD88R;
+MPRINT(EM_DIAGRAM):   data WORK.M08FD88R;
+35265      set WORK.M08FD88R;
+MPRINT(EM_DIAGRAM):   set WORK.M08FD88R;
+35266      if METHOD in("TREE", "TREESURR") then role = 'TARGET';
+MPRINT(EM_DIAGRAM):   if METHOD in("TREE", "TREESURR") then role = 'TARGET';
+35267      else if (role = 'REJECTED') then role = 'INPUT';
+MPRINT(EM_DIAGRAM):   else if (role = 'REJECTED') then role = 'INPUT';
+35268      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M08FD88R.
+NOTE: The data set WORK.M08FD88R has 24 observations and 31 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35269      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+35270      * Impt: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   * Impt: DMDBClass Macro ;
+35271      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+35272      %macro DMDBClass;
+35273          Risk(DESC) aspiration(ASC) body_style(ASC) drive_wheels(ASC)
+35274         engine_location(ASC) engine_type(ASC) fuel_system(ASC) fuel_type(ASC)
+35275         num_of_cylinders(ASC) num_of_doors(ASC)
+35276      %mend DMDBClass;
+35277      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+35278      * Impt: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * Impt: DMDBVar Macro ;
+35279      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+35280      %macro DMDBVar;
+35281          bore city_mpg compression_ratio curb_weight engine_size height highway_mpg
+35282         horsepower length peak_rpm price stroke wheel_base width
+35283      %mend DMDBVar;
+35284      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+35285      * Impt: Create DMDB;
+MPRINT(EM_DIAGRAM):   * Impt: Create DMDB;
+35286      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+35287      proc dmdb batch data=EMWS1.Part_TRAIN
+35288      dmdbcat=WORK.Impt_DMDB
+35289      classout=WORK.Impt_DMDBCLASSOUT
+35290      varout=WORK.IMPUTE_0FYP6_9_DMDBVAROUT
+35291      maxlevel = 513
+35292      ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS1.Part_TRAIN dmdbcat=WORK.Impt_DMDB classout=WORK.Impt_DMDBCLASSOUT varout=WORK.IMPUTE_0FYP6_9_DMDBVAROUT maxlevel = 513 ;
+MPRINT(EM_DIAGRAM):   class
+35293      class %DMDBClass;
+MPRINT(DMDBCLASS):   Risk(DESC) aspiration(ASC) body_style(ASC) drive_wheels(ASC) engine_location(ASC) engine_type(ASC) fuel_system(ASC) fuel_type(ASC) num_of_cylinders(ASC) num_of_doors(ASC)
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   var
+35294      var %DMDBVar;
+MPRINT(DMDBVAR):   bore city_mpg compression_ratio curb_weight engine_size height highway_mpg horsepower length peak_rpm price stroke wheel_base width
+MPRINT(EM_DIAGRAM):  ;
+35295      target
+35296      Risk
+35297      ;
+MPRINT(EM_DIAGRAM):   target Risk ;
+35298      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Records processed = 100   Memory used = 511K.
+NOTE: There were 100 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: The data set WORK.IMPT_DMDBCLASSOUT has 35 observations and 9 variables.
+NOTE: The data set WORK.IMPUTE_0FYP6_9_DMDBVAROUT has 14 observations and 9 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *--- end code ---*;
+35299      quit;
+35300      *--- end code ---*;
+
+35301      proc sort data=WORK.Impt_DMDBCLASSOUT;
+MPRINT(EM_DIAGRAM):    proc sort data=WORK.Impt_DMDBCLASSOUT;
+35302      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35303      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 35 observations read from the data set WORK.IMPT_DMDBCLASSOUT.
+NOTE: The data set WORK.IMPT_DMDBCLASSOUT has 35 observations and 9 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35304      data WORK.Impt_DMDBCLASSOUT;
+MPRINT(EM_DIAGRAM):   data WORK.Impt_DMDBCLASSOUT;
+35305      retain missFlag;
+MPRINT(EM_DIAGRAM):   retain missFlag;
+35306      set WORK.Impt_DMDBCLASSOUT;
+MPRINT(EM_DIAGRAM):   set WORK.Impt_DMDBCLASSOUT;
+35307      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35308      output;
+MPRINT(EM_DIAGRAM):   output;
+35309      if first.name then missflag = 0;
+MPRINT(EM_DIAGRAM):   if first.name then missflag = 0;
+35310      if (TYPE='C' and CRAW='') or (TYPE='N' and NRAW=.) then missflag = 1;
+MPRINT(EM_DIAGRAM):   if (TYPE='C' and CRAW='') or (TYPE='N' and NRAW=.) then missflag = 1;
+35311      if last.name and ^missFlag then do;
+MPRINT(EM_DIAGRAM):   if last.name and ^missFlag then do;
+35312      if type = 'C' then do;
+MPRINT(EM_DIAGRAM):   if type = 'C' then do;
+35313      LEVEL= '';
+MPRINT(EM_DIAGRAM):   LEVEL= '';
+35314      CRAW = '';
+MPRINT(EM_DIAGRAM):   CRAW = '';
+35315      NRAW = .;
+MPRINT(EM_DIAGRAM):   NRAW = .;
+35316      end;
+MPRINT(EM_DIAGRAM):   end;
+35317      else do;
+MPRINT(EM_DIAGRAM):   else do;
+35318      LEVEL='.';
+MPRINT(EM_DIAGRAM):   LEVEL='.';
+35319      CRAW = '.';
+MPRINT(EM_DIAGRAM):   CRAW = '.';
+35320      NRAW= .;
+MPRINT(EM_DIAGRAM):   NRAW= .;
+35321      end;
+MPRINT(EM_DIAGRAM):   end;
+35322      FREQUENCY = 0;
+MPRINT(EM_DIAGRAM):   FREQUENCY = 0;
+35323      FREQPERCENT = 0;
+MPRINT(EM_DIAGRAM):   FREQPERCENT = 0;
+35324      NMISSPERCENT = 0;
+MPRINT(EM_DIAGRAM):   NMISSPERCENT = 0;
+35325      output;
+MPRINT(EM_DIAGRAM):   output;
+35326      end;
+MPRINT(EM_DIAGRAM):   end;
+35327      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 35 observations read from the data set WORK.IMPT_DMDBCLASSOUT.
+NOTE: The data set WORK.IMPT_DMDBCLASSOUT has 44 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35328      data WORK.Impt_MISS(KEEP=NAME NMISS PERCENTMISS);
+MPRINT(EM_DIAGRAM):    data WORK.Impt_MISS(KEEP=NAME NMISS PERCENTMISS);
+35329      length NAME $32;
+MPRINT(EM_DIAGRAM):   length NAME $32;
+35330      set
+35331      WORK.Impt_DMDBCLASSOUT(rename=(freqpercent=PERCENTMISS frequency=NMISS) where=((TYPE='C' and CRAW='') or (TYPE='N' and NRAW=.)))
+35332      WORK.IMPUTE_0FYP6_9_DMDBVAROUT
+35333      ;
+MPRINT(EM_DIAGRAM):   set WORK.Impt_DMDBCLASSOUT(rename=(freqpercent=PERCENTMISS frequency=NMISS) where=((TYPE='C' and CRAW='') or (TYPE='N' and NRAW=.))) WORK.IMPUTE_0FYP6_9_DMDBVAROUT ;
+35334      if (NMISS ne . and N ne .) then PERCENTMISS = (NMISS/(NMISS+N))*100;
+MPRINT(EM_DIAGRAM):   if (NMISS ne . and N ne .) then PERCENTMISS = (NMISS/(NMISS+N))*100;
+35335      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 10 observations read from the data set WORK.IMPT_DMDBCLASSOUT.
+      WHERE ((TYPE='C') and (CRAW=' ')) or ((TYPE='N') and (NRAW=.));
+NOTE: There were 14 observations read from the data set WORK.IMPUTE_0FYP6_9_DMDBVAROUT.
+NOTE: The data set WORK.IMPT_MISS has 24 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35336      proc sort data=WORK.M34GUFQL NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.M34GUFQL NOTHREADS;
+35337      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35338      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: The data set WORK.M34GUFQL has 24 observations and 31 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35339      proc sort data=WORK.Impt_MISS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Impt_MISS NOTHREADS;
+35340      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35341      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.IMPT_MISS.
+NOTE: The data set WORK.IMPT_MISS has 24 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35342      data WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   data WORK.M34GUFQL;
+35343      merge WORK.M34GUFQL WORK.Impt_MISS(in=_b);
+MPRINT(EM_DIAGRAM):   merge WORK.M34GUFQL WORK.Impt_MISS(in=_b);
+35344      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35345      if _b then output;
+MPRINT(EM_DIAGRAM):   if _b then output;
+35346      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: There were 24 observations read from the data set WORK.IMPT_MISS.
+NOTE: The data set WORK.M34GUFQL has 24 observations and 33 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35347      data WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   data WORK.M34GUFQL;
+35348      set WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   set WORK.M34GUFQL;
+35349      if 0<PERCENTMISS<50 and method ne 'NONE' then IMPUTE = 1;
+MPRINT(EM_DIAGRAM):   if 0<PERCENTMISS<50 and method ne 'NONE' then IMPUTE = 1;
+35350      else IMPUTE = 0;
+MPRINT(EM_DIAGRAM):   else IMPUTE = 0;
+35351      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: The data set WORK.M34GUFQL has 24 observations and 34 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35352      proc dmdb data=WORK.M34GUFQL outtable=WORK.NEWNAMES nameserver;
+MPRINT(EM_DIAGRAM):    proc dmdb data=WORK.M34GUFQL outtable=WORK.NEWNAMES nameserver;
+35353      names NAME;
+MPRINT(EM_DIAGRAM):   names NAME;
+35354      prefix M_ IMP_;
+MPRINT(EM_DIAGRAM):   prefix M_ IMP_;
+35355      where IMPUTE=1;
+MPRINT(EM_DIAGRAM):   where IMPUTE=1;
+35356      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 4 observations read from the data set WORK.M34GUFQL.
+      WHERE IMPUTE=1;
+NOTE: The data set WORK.NEWNAMES has 4 observations and 3 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35357      data WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   data WORK.M34GUFQL;
+35358      merge WORK.M34GUFQL WORK.NEWNAMES;
+MPRINT(EM_DIAGRAM):   merge WORK.M34GUFQL WORK.NEWNAMES;
+35359      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35360      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: There were 4 observations read from the data set WORK.NEWNAMES.
+NOTE: The data set WORK.M34GUFQL has 24 observations and 36 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35361      proc dmdb data=WORK.M34GUFQL outtable=WORK.NEWNAMES nameserver;
+MPRINT(EM_DIAGRAM):   proc dmdb data=WORK.M34GUFQL outtable=WORK.NEWNAMES nameserver;
+35362      names NAME;
+MPRINT(EM_DIAGRAM):   names NAME;
+35363      prefix M_;
+MPRINT(EM_DIAGRAM):   prefix M_;
+35364      where IMPUTE=0;
+MPRINT(EM_DIAGRAM):   where IMPUTE=0;
+35365      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 20 observations read from the data set WORK.M34GUFQL.
+      WHERE IMPUTE=0;
+NOTE: The data set WORK.NEWNAMES has 20 observations and 2 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35366      data WORK.M34GUFQL;
+MPRINT(EM_DIAGRAM):   data WORK.M34GUFQL;
+35367      merge WORK.M34GUFQL WORK.NEWNAMES;
+MPRINT(EM_DIAGRAM):   merge WORK.M34GUFQL WORK.NEWNAMES;
+35368      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35369      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: There were 20 observations read from the data set WORK.NEWNAMES.
+NOTE: The data set WORK.M34GUFQL has 24 observations and 36 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35370      data WORK.Impt;
+MPRINT(EM_DIAGRAM):    data WORK.Impt;
+35371      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.IMPT has 1 observations and 0 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35372      data WORK._IMPUTEDS;
+MPRINT(EM_DIAGRAM):    data WORK._IMPUTEDS;
+35373      num_of_doors = 4;
+MPRINT(EM_DIAGRAM):   num_of_doors = 4;
+35374      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._IMPUTEDS has 1 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35375      data WORK.Impt;
+MPRINT(EM_DIAGRAM):   data WORK.Impt;
+35376      merge WORK.Impt WORK._IMPUTEDS;
+MPRINT(EM_DIAGRAM):   merge WORK.Impt WORK._IMPUTEDS;
+35377      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.IMPT.
+NOTE: There were 1 observations read from the data set WORK._IMPUTEDS.
+NOTE: The data set WORK.IMPT has 1 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35378      proc sort data=WORK.METASET0CKKC_G out=_imputevar(keep=NAME METHOD);
+MPRINT(EM_DIAGRAM):    proc sort data=WORK.METASET0CKKC_G out=_imputevar(keep=NAME METHOD);
+35379      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35380      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set WORK.METASET0CKKC_G.
+NOTE: The data set WORK._IMPUTEVAR has 3 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35381      proc sort data=WORK.IMPUTE_0FYP6_9_DMDBVAROUT;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.IMPUTE_0FYP6_9_DMDBVAROUT;
+35382      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35383      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 14 observations read from the data set WORK.IMPUTE_0FYP6_9_DMDBVAROUT.
+NOTE: The data set WORK.IMPUTE_0FYP6_9_DMDBVAROUT has 14 observations and 9 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35384      data _null_;
+MPRINT(EM_DIAGRAM):   data _null_;
+35385      merge WORK.IMPUTE_0FYP6_9_DMDBVAROUT(in=_a) _imputeVar(in=_b);
+MPRINT(EM_DIAGRAM):   merge WORK.IMPUTE_0FYP6_9_DMDBVAROUT(in=_a) _imputeVar(in=_b);
+35386      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35387      if _N_=1 then do;
+MPRINT(EM_DIAGRAM):   if _N_=1 then do;
+35388      call execute("data WORK._IMPUTEDMDB;");
+MPRINT(EM_DIAGRAM):   call execute("data WORK._IMPUTEDMDB;");
+35389      end;
+MPRINT(EM_DIAGRAM):   end;
+35390      if _a and _b then do;
+MPRINT(EM_DIAGRAM):   if _a and _b then do;
+35391      select(METHOD);
+MPRINT(EM_DIAGRAM):   select(METHOD);
+35392      when('MEAN') value=mean;
+MPRINT(EM_DIAGRAM):   when('MEAN') value=mean;
+35393      when('MIN') value=min;
+MPRINT(EM_DIAGRAM):   when('MIN') value=min;
+35394      when('MAX') value=max;
+MPRINT(EM_DIAGRAM):   when('MAX') value=max;
+35395      when('RANGE') value=(max-min);
+MPRINT(EM_DIAGRAM):   when('RANGE') value=(max-min);
+35396      when('MIDRANGE') value=(max+min)/2;
+MPRINT(EM_DIAGRAM):   when('MIDRANGE') value=(max+min)/2;
+35397      otherwise;
+MPRINT(EM_DIAGRAM):   otherwise;
+35398      end;
+MPRINT(EM_DIAGRAM):   end;
+35399      call execute(NAME!!'='!!strip(put(value, best.))!!';');
+MPRINT(EM_DIAGRAM):   call execute(NAME!!'='!!strip(put(value, best.))!!';');
+35400      end;
+MPRINT(EM_DIAGRAM):   end;
+35401      run;
+MPRINT(EM_DIAGRAM):   run;
+
+WARNING: Multiple lengths were specified for the BY variable NAME by input data sets. This might cause unexpected results.
+MPRINT(EM_DIAGRAM):   data WORK._IMPUTEDMDB;
+MPRINT(EM_DIAGRAM):   bore =3.3026530612;
+MPRINT(EM_DIAGRAM):   price =12773.191919;
+MPRINT(EM_DIAGRAM):   stroke =3.2513265306;
+NOTE: There were 14 observations read from the data set WORK.IMPUTE_0FYP6_9_DMDBVAROUT.
+NOTE: There were 3 observations read from the data set WORK._IMPUTEVAR.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: CALL EXECUTE generated line.
+1         + data WORK._IMPUTEDMDB;
+2         + bore                            =3.3026530612;
+3         + price                           =12773.191919;
+4         + stroke                          =3.2513265306;
+
+NOTE: The data set WORK._IMPUTEDMDB has 1 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35402      data WORK.Impt;
+MPRINT(EM_DIAGRAM):   data WORK.Impt;
+35403      merge WORK.Impt WORK._IMPUTEDMDB;
+MPRINT(EM_DIAGRAM):   merge WORK.Impt WORK._IMPUTEDMDB;
+35404      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.IMPT.
+NOTE: There were 1 observations read from the data set WORK._IMPUTEDMDB.
+NOTE: The data set WORK.IMPT has 1 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+35405      proc transpose data=WORK.Impt out=WORK._IMPVALUE(drop =_LABEL_ rename=(_NAME_=NAME COL1=VALUE));
+MPRINT(EM_DIAGRAM):    proc transpose data=WORK.Impt out=WORK._IMPVALUE(drop =_LABEL_ rename=(_NAME_=NAME COL1=VALUE));
+35406      var
+35407      num_of_doors
+35408      bore
+35409      price
+35410      stroke
+35411      ;
+MPRINT(EM_DIAGRAM):   var num_of_doors bore price stroke ;
+35412      run;
+MPRINT(EM_DIAGRAM):   run;
+
+WARNING: The variable _LABEL_ in the DROP, KEEP, or RENAME list has never been referenced.
+NOTE: There were 1 observations read from the data set WORK.IMPT.
+NOTE: The data set WORK._IMPVALUE has 4 observations and 2 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+35413      proc sort data=WORK._IMPVALUE NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._IMPVALUE NOTHREADS;
+35414      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35415      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 4 observations read from the data set WORK._IMPVALUE.
+NOTE: The data set WORK._IMPVALUE has 4 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35416      data EMWS1.Impt_META;
+MPRINT(EM_DIAGRAM):   data EMWS1.Impt_META;
+35417      merge WORK.M34GUFQL WORK._IMPVALUE;
+MPRINT(EM_DIAGRAM):   merge WORK.M34GUFQL WORK._IMPVALUE;
+35418      by NAME;
+MPRINT(EM_DIAGRAM):   by NAME;
+35419      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 24 observations read from the data set WORK.M34GUFQL.
+NOTE: There were 4 observations read from the data set WORK._IMPVALUE.
+NOTE: The data set EMWS1.IMPT_META has 24 observations and 37 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+      
+
+35420      proc print data=EMWS1.Impt_META(obs=500) label noobs;
+MPRINT(EM_DIAGRAM):    proc print data=EMWS1.Impt_META(obs=500) label noobs;
+35421      label NAME = "%sysfunc(sasmsg(sashelp.dmine, meta_name_vlabel,          NOQUOTE))" LABEL = "%sysfunc(sasmsg(sashelp.dmine, meta_label_vlabel,         NOQUOTE))" PERCENTMISS = "%sysfunc(sasmsg(sashelp.dmine, rpt_percentmissing_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label NAME = "Variable Name" LABEL = "Label" PERCENTMISS = "Percent Missing";
+35422      var NAME LABEL PERCENTMISS;
+MPRINT(EM_DIAGRAM):   var NAME LABEL PERCENTMISS;
+35423      where IMP eq '' and PERCENTMISS>50;
+MPRINT(EM_DIAGRAM):   where IMP eq '' and PERCENTMISS>50;
+35424      title9 "%sysfunc(sasmsg(sashelp.dmine, rpt_rejectedsummary_title, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title9 "Rejected Variables Summary";
+35425      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_numberobs_title,         NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Number Of Observations";
+MPRINT(EM_DIAGRAM):   run;
+35426      run;
+
+NOTE: No observations were selected from data set EMWS1.IMPT_META.
+NOTE: There were 0 observations read from the data set EMWS1.IMPT_META.
+      WHERE (IMP=' ') and (PERCENTMISS>50);
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

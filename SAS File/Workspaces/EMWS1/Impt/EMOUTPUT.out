@@ -1,0 +1,57 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 05, 2021
+Time:                13:09:31 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL           1
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+Imputation Summary
+Number Of Observations
+ 
+                                                                                                                     Number of
+Variable        Impute                        Indicator           Impute             Measurement                       Missing
+Name            Method    Imputed Variable    Variable             Value    Role        Level          Label         for TRAIN
+ 
+bore            MEAN      IMP_bore            M_bore                3.30    INPUT     INTERVAL                               2
+num_of_doors    COUNT     IMP_num_of_doors    M_num_of_doors        4.00    INPUT     NOMINAL       num-of-doors             2
+price           MEAN      IMP_price           M_price           12773.19    INPUT     INTERVAL                               1
+stroke          MEAN      IMP_stroke          M_stroke              3.25    INPUT     INTERVAL                               2
+ 
+ 
+ 
+ 
+Variable Distribution Training Data
+ 
+        Number of
+          Missing    Number of    Percent of
+Obs     for TRAIN    Variables     Variables
+ 
+ 1              2        3            75
+ 2              1        1            25

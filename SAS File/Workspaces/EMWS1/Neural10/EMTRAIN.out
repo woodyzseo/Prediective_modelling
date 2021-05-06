@@ -1,0 +1,215 @@
+ 
+                                                                                               
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+INPUT        INTERVAL           2   
+INPUT        NOMINAL            1   
+REJECTED     BINARY             4   
+REJECTED     INTERVAL          27   
+REJECTED     NOMINAL           17   
+TARGET       BINARY             1   
+ 
+                                                                                               
+ 
+ 
+Model Events
+
+                                  Number
+                   Measurement      of
+Target    Event       Level       Levels      Order       Label
+
+ Risk       1        BINARY          2      Descending         
+ 
+                                                                                               
+ 
+ 
+Predicted and decision variables
+
+Type         Variable    Label
+
+TARGET       Risk                         
+PREDICTED    P_Risk1     Predicted: Risk=1
+RESIDUAL     R_Risk1     Residual: Risk=1 
+PREDICTED    P_Risk0     Predicted: Risk=0
+RESIDUAL     R_Risk0     Residual: Risk=0 
+FROM         F_Risk      From: Risk       
+INTO         I_Risk      Into: Risk       
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+                    Optimization Start
+                   Parameter Estimates
+                                                 Gradient
+                                                Objective
+  N Parameter                    Estimate        Function
+
+  1 REP_wheel_base_H11          -0.024815               0
+  2 REP_width_H11               -0.057728               0
+  3 REP_wheel_base_H12          -0.140581               0
+  4 REP_width_H12               -0.128323               0
+  5 REP_wheel_base_H13           0.042454               0
+  6 REP_width_H13                0.288309               0
+  7 IMP_num_of_doors2_H11       -0.878258               0
+  8 IMP_num_of_doors2_H12        0.457147               0
+  9 IMP_num_of_doors2_H13        0.330363               0
+ 10 BIAS_H11                     0.175710               0
+ 11 BIAS_H12                    -1.443608               0
+ 12 BIAS_H13                     0.448873               0
+ 13 H11_Risk1                           0        0.192150
+ 14 H12_Risk1                           0       -0.042422
+ 15 H13_Risk1                           0       -0.032870
+ 16 BIAS_Risk1                   0.160343    5.329071E-17
+
+Value of Objective Function = 0.6899437585
+
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+Levenberg-Marquardt Optimization
+
+
+Minimum Iterations                                0
+Maximum Iterations                               50
+Maximum Function Calls                   2147483647
+Maximum CPU Time                                300
+ABSGCONV Gradient Criterion                 0.00001
+GCONV Gradient Criterion                       1E-8
+GCONV2 Gradient Criterion                         0
+ABSFCONV Function Criterion                       0
+FCONV Function Criterion                     0.0001
+FCONV2 Function Criterion                         0
+FSIZE Parameter                                   0
+ABSXCONV Parameter Change Criterion               0
+XCONV Parameter Change Criterion                  0
+XSIZE Parameter                                   0
+ABSCONV Function Criterion             0.0013927149
+Trust Region Initial Radius Factor                1
+Singularity Tolerance (SINGULAR)               1E-8
+
+Levenberg-Marquardt Optimization
+
+Scaling Update of More (1978)
+
+Parameter Estimates              16
+
+                                      Optimization Start
+
+Active Constraints                           0  Objective Function                0.6899437585
+Max Abs Gradient Element          0.1921501501  Radius                                       1
+
+
+                                                                                         Ratio
+                                                                                       Between
+                                                                                        Actual
+                                                       Objective   Max Abs                 and
+                 Function       Active      Objective   Function  Gradient           Predicted
+Iter   Restarts     Calls  Constraints       Function     Change   Element   Lambda     Change
+
+   1*         0         2            0        0.47581     0.2141    0.1385   0.0373      0.803
+   2          0         4            0        0.39864     0.0772    0.0374   0.0517      0.859
+   3          0         6            0        0.38058     0.0181    0.0260    0.111      0.973
+   4          0         7            0        0.37391    0.00666    0.1230   0.0260      0.324
+   5          0         8            0        0.35755     0.0164    0.0398  0.00864      0.793
+   6          0        10            0        0.35394    0.00361    0.0337   0.0513      0.449
+   7          0        11            0        0.35026    0.00368    0.0251   0.0310      0.680
+   8          0        12            0        0.34744    0.00283    0.0195   0.0331      0.623
+   9          0        13            0        0.34467    0.00276    0.0155   0.0240      0.737
+  10          0        14            0        0.34251    0.00217    0.0128   0.0250      0.659
+  11          0        15            0        0.33707    0.00543    0.0106  0.00515      0.871
+  12          0        16            0        0.33216    0.00491    0.0350  0.00159      0.584
+  13          0        17            0        0.32729    0.00487    0.0877  0.00102      0.535
+  14          0        19            0        0.32118    0.00611    0.0510  0.00891      0.382
+  15          0        20            0        0.32082   0.000357    0.0330  0.00669     0.0378
+  16          0        21            0        0.31608    0.00475    0.0195   0.0371      0.572
+  17          0        22            0        0.31450    0.00158    0.0139  0.00875      0.775
+  18          0        23            0        0.31186    0.00264    0.0224  0.00397      0.913
+  19          0        24            0        0.30876    0.00310    0.0358  0.00223      0.478
+  20          0        25            0        0.30127    0.00750    0.0561  0.00192      0.631
+  21          0        27            0        0.30108   0.000183    0.0402  0.00314     0.0117
+  22          0        28            0        0.29715    0.00393    0.0544  0.00751      0.197
+  23          0        30            0        0.28885    0.00830    0.0144   0.0790      0.602
+  24          0        31            0        0.28705    0.00180   0.00930   0.0154      0.790
+  25          0        32            0        0.28421    0.00285    0.0114  0.00746      0.763
+  26          0        33            0        0.28331   0.000895    0.0296  0.00295      0.131
+  27          0        35            0        0.28094    0.00237    0.0277   0.0209      0.149
+  28          0        37            0        0.27831    0.00263    0.0105   0.0768      0.673
+  29          0        38            0        0.27714    0.00117    0.0110   0.0404      0.704
+  30          0        39            0        0.27644   0.000698   0.00704   0.0248      0.752
+  31          0        40            0        0.27518    0.00126   0.00755   0.0108      0.758
+  32          0        41            0        0.27493   0.000253    0.0194  0.00535     0.0794
+  33          0        42            0        0.27363    0.00130    0.0147   0.0376      0.185
+  34          0        44            0        0.27246    0.00117    0.0118   0.0522      0.475
+  35          0        45            0        0.27183   0.000633    0.0105   0.0222      0.539
+  36          0        46            0        0.27140   0.000432    0.0104   0.0265      0.433
+  37          0        47            0        0.27102   0.000375   0.00907   0.0308      0.349
+  38          0        48            0        0.27063   0.000391   0.00971   0.0288      0.390
+  39          0        49            0        0.27029   0.000340   0.00874   0.0312      0.324
+  40          0        50            0        0.26992   0.000371   0.00953   0.0288      0.372
+  41          0        51            0        0.26960   0.000315   0.00878   0.0314      0.299
+  42          0        52            0        0.26925   0.000352   0.00961   0.0288      0.349
+  43          0        53            0        0.26896   0.000294   0.00898   0.0317      0.274
+  44          0        54            0        0.26862   0.000335   0.00980   0.0289      0.326
+  45          0        55            0        0.26835   0.000275   0.00924   0.0320      0.250
+  46          0        56            0        0.26803   0.000320    0.0100   0.0289      0.305
+  47          0        57            0        0.26777   0.000258   0.00952   0.0323      0.229
+  48          0        58            0        0.26746   0.000307    0.0102   0.0289      0.286
+  49          0        59            0        0.26722   0.000242   0.00981   0.0326      0.210
+  50          0        60            0        0.26693   0.000295    0.0104   0.0289      0.270
+
+                                     Optimization Results
+
+Iterations                                  50  Function Calls                              62
+Jacobian Calls                              52  Active Constraints                           0
+Objective Function                0.2669254826  Max Abs Gradient Element          0.0104487164
+Lambda                            0.0289192815  Actual Over Pred Change           0.2695547621
+Radius                            0.1585137596                                                
+
+LEVMAR needs more than 50 iterations or 2147483647 function calls.                             
+
+WARNING: LEVMAR Optimization cannot be completed.
+
+ 
+                                                                                               
+ 
+ 
+
+The NEURAL Procedure
+
+                   Optimization Results
+                   Parameter Estimates
+                                                 Gradient
+                                                Objective
+  N Parameter                    Estimate        Function
+
+  1 REP_wheel_base_H11           0.639676       -0.000240
+  2 REP_width_H11               -0.375798       -0.000225
+  3 REP_wheel_base_H12          -6.045422       -0.005086
+  4 REP_width_H12               -4.491326       -0.008153
+  5 REP_wheel_base_H13           8.523375       -0.004818
+  6 REP_width_H13                0.445966       -0.006241
+  7 IMP_num_of_doors2_H11       -0.295382       -0.005482
+  8 IMP_num_of_doors2_H12        3.319415       -0.009230
+  9 IMP_num_of_doors2_H13       -1.443526       -0.006892
+ 10 BIAS_H11                    -0.018028        0.003633
+ 11 BIAS_H12                    -6.223043        0.010449
+ 12 BIAS_H13                     5.639983        0.005818
+ 13 H11_Risk1                   -6.259762     0.000074404
+ 14 H12_Risk1                   -5.535750        0.000858
+ 15 H13_Risk1                   -7.387476        0.000829
+ 16 BIAS_Risk1                   2.541356       -0.001045
+
+Value of Objective Function = 0.2669254826
+

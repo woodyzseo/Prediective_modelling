@@ -1,0 +1,81 @@
+*------------------------------------------------------------*
+User:                301152869
+Date:                April 16, 2021
+Time:                11:26:29 o'clock
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        BINARY             4
+INPUT        INTERVAL          14
+INPUT        NOMINAL            9
+REJECTED     INTERVAL          15
+REJECTED     NOMINAL            2
+TARGET       BINARY             1
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Replacement Values for Class Variables
+ 
+                                            Character
+                    Formatted              Unformatted    Numeric    Replacement
+Variable            Value          Type       Value        Value        Value       Label
+ 
+aspiration          std             C      std               .        S
+aspiration          turbo           C      turbo             .        T
+body_style          sedan           C      sedan             .        S             body-style
+body_style          hatchback       C      hatchback         .        H             body-style
+body_style          wagon           C      wagon             .        W             body-style
+body_style          hardtop         C      hardtop           .        C             body-style
+body_style          convertible     C      convertible       .        C             body-style
+drive_wheels        fwd             C      fwd               .        F             drive-wheels
+drive_wheels        rwd             C      rwd               .        R             drive-wheels
+drive_wheels        4wd             C      4wd               .        4             drive-wheels
+engine_location     front           C      front             .        F             engine-location
+engine_location     rear            C      rear              .        R             engine-location
+fuel_system         mpfi            C      mpfi              .        non-spdi      fuel-system
+fuel_system         2bbl            C      2bbl              .        non-spdi      fuel-system
+fuel_system         idi             C      idi               .        non-spdi      fuel-system
+fuel_system         1bbl            C      1bbl              .        non-spdi      fuel-system
+fuel_system         spdi            C      spdi              .        spdi          fuel-system
+fuel_system         4bbl            C      4bbl              .        non-spdi      fuel-system
+fuel_type           gas             C      gas               .        G             fuel-type
+fuel_type           diesel          C      diesel            .        D             fuel-type
+num_of_cylinders    four            C      four              .        <=4           num-of-cylinders
+num_of_cylinders    six             C      six               .        >4            num-of-cylinders
+num_of_cylinders    five            C      five              .        >4            num-of-cylinders
+num_of_cylinders    two             C      two               .        <=4           num-of-cylinders
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Replacement Counts
+ 
+Obs    Variable            Role     Label               Train    Validation
+ 
+ 1     aspiration          INPUT                         100         100
+ 2     body_style          INPUT    body-style           100         100
+ 3     drive_wheels        INPUT    drive-wheels         100         100
+ 4     engine_location     INPUT    engine-location      100         100
+ 5     fuel_system         INPUT    fuel-system           97          94
+ 6     fuel_type           INPUT    fuel-type            100         100
+ 7     num_of_cylinders    INPUT    num-of-cylinders     100          96

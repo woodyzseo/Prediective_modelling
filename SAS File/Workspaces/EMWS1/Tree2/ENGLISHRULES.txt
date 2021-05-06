@@ -1,0 +1,57 @@
+*------------------------------------------------------------*
+ Node = 5
+*------------------------------------------------------------*
+if wheel-base < 96.2 or MISSING
+AND num-of-doors IS ONE OF: 2
+then 
+ Tree Node Identifier   = 5
+ Number of Observations = 25
+ Predicted: Risk=1 = 1.00
+ Predicted: Risk=0 = 0.00
+ 
+*------------------------------------------------------------*
+ Node = 6
+*------------------------------------------------------------*
+if wheel-base >= 96.2
+AND num-of-doors IS ONE OF: 2
+then 
+ Tree Node Identifier   = 6
+ Number of Observations = 15
+ Predicted: Risk=1 = 0.73
+ Predicted: Risk=0 = 0.27
+ 
+*------------------------------------------------------------*
+ Node = 7
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 4 or MISSING
+AND height < 51.8
+then 
+ Tree Node Identifier   = 7
+ Number of Observations = 6
+ Predicted: Risk=1 = 1.00
+ Predicted: Risk=0 = 0.00
+ 
+*------------------------------------------------------------*
+ Node = 9
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 4 or MISSING
+AND height >= 51.8 or MISSING
+AND engine-type IS ONE OF: OHC
+then 
+ Tree Node Identifier   = 9
+ Number of Observations = 42
+ Predicted: Risk=1 = 0.29
+ Predicted: Risk=0 = 0.71
+ 
+*------------------------------------------------------------*
+ Node = 10
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 4 or MISSING
+AND height >= 51.8 or MISSING
+AND engine-type equals Missing
+then 
+ Tree Node Identifier   = 10
+ Number of Observations = 12
+ Predicted: Risk=1 = 0.00
+ Predicted: Risk=0 = 1.00
+ 

@@ -1,0 +1,27 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+INPUT        BINARY             4   
+INPUT        INTERVAL          14   
+INPUT        NOMINAL            9   
+REJECTED     INTERVAL          15   
+REJECTED     NOMINAL            2   
+TARGET       BINARY             1   
+ 
+                                                                                                                                                                                                                                                                
+ 
+Computed Transformations
+(maximum 500 observations printed)
+
+                                   Input
+Input Name               Role      Level                Name                Level                  Formula
+
+REP_IMP_price            INPUT    INTERVAL    LOG_REP_IMP_price            INTERVAL    log(REP_IMP_price  + 1)        
+REP_compression_ratio    INPUT    INTERVAL    LOG_REP_compression_ratio    INTERVAL    log(REP_compression_ratio  + 1)
+REP_engine_size          INPUT    INTERVAL    LOG_REP_engine_size          INTERVAL    log(REP_engine_size  + 1)      

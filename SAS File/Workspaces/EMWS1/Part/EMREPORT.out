@@ -1,0 +1,31 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Summary Statistics for Class Targets
+
+Data=DATA
+
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+
+  Risk         0           0            91         45.5          
+  Risk         1           1           109         54.5          
+
+
+Data=TRAIN
+
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+
+  Risk         0           0            46          46           
+  Risk         1           1            54          54           
+
+
+Data=VALIDATE
+
+            Numeric    Formatted    Frequency
+Variable     Value       Value        Count      Percent    Label
+
+  Risk         0           0            45          45           
+  Risk         1           1            55          55           

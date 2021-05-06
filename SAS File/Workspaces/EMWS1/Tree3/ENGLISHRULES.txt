@@ -1,0 +1,32 @@
+*------------------------------------------------------------*
+ Node = 2
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 2
+then 
+ Tree Node Identifier   = 2
+ Number of Observations = 40
+ Predicted: Risk=1 = 0.90
+ Predicted: Risk=0 = 0.10
+ 
+*------------------------------------------------------------*
+ Node = 6
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 4 or MISSING
+AND height < 51.8
+then 
+ Tree Node Identifier   = 6
+ Number of Observations = 6
+ Predicted: Risk=1 = 1.00
+ Predicted: Risk=0 = 0.00
+ 
+*------------------------------------------------------------*
+ Node = 7
+*------------------------------------------------------------*
+if num-of-doors IS ONE OF: 4 or MISSING
+AND height >= 51.8 or MISSING
+then 
+ Tree Node Identifier   = 7
+ Number of Observations = 54
+ Predicted: Risk=1 = 0.22
+ Predicted: Risk=0 = 0.78
+ 

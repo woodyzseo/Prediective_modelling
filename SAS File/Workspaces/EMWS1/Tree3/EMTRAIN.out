@@ -1,0 +1,41 @@
+ 
+                                                                                               
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+ID           INTERVAL           1   
+INPUT        INTERVAL          14   
+INPUT        NOMINAL            9   
+REJECTED     INTERVAL           1   
+REJECTED     NOMINAL            2   
+TARGET       BINARY             1   
+ 
+                                                                                               
+ 
+ 
+Model Events
+
+                                  Number
+                   Measurement      of
+Target    Event       Level       Levels      Order       Label
+
+ Risk       1        BINARY          2      Descending         
+ 
+                                                                                               
+ 
+ 
+Predicted and decision variables
+
+Type         Variable    Label
+
+TARGET       Risk                         
+PREDICTED    P_Risk1     Predicted: Risk=1
+RESIDUAL     R_Risk1     Residual: Risk=1 
+PREDICTED    P_Risk0     Predicted: Risk=0
+RESIDUAL     R_Risk0     Residual: Risk=0 
+FROM         F_Risk      From: Risk       
+INTO         I_Risk      Into: Risk       
